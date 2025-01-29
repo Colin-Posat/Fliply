@@ -1,0 +1,162 @@
+@font-face {
+    font-family: 'WorkSans';
+    src: url('../static/WorkSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'WorkSans';
+    src: url('../static/WorkSans-Bold.ttf') format('truetype');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'WorkSans';
+    src: url('../static/WorkSans-Italic.ttf') format('truetype');
+    font-style: italic;
+}
+/* Define the correct color palette */
+:root {
+    --white: #ffffff;
+    --black: #000000;
+    --off-white: #fcfcfc;
+    --light-gray: #bdbdbd;
+    --dark-gray: #343434;
+    --almost-black: #161615;
+    --dark-blue: #004a74;
+    --light-blue: #e3f3ff;
+    --medium-blue: #00659f;
+    --red: #ff3131;
+}
+
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'WorkSans', sans-serif;
+}
+
+
+
+/* Background & Layout */
+body {
+    background-color: var(--dark-blue);
+    color: var(--white);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Ensures full viewport height */
+    font-family: 'WorkSans', sans-serif;
+}
+
+
+
+/* Header */
+header {
+    width: 100%;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    text-align: right;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.contact {
+    color: var(--white);
+    cursor: pointer;
+}
+
+/* Main Content */
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Subtitle */
+.subtitle {
+    font-size: 30px;
+    max-width: 1100px;
+    line-height: 1.5;
+    margin-bottom: 40px;
+}
+
+.subtitle a {
+    color: var(--white);
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.save-grade {
+    display: block;  /* Moves "save your grade" to a new line */
+    font-weight: bold;
+    margin-top: 5px; /* Adds space above */
+    text-align: center;
+}
+
+.logo-container {
+    display: inline-flex; /* Keeps text and logo together */
+    align-items: center;  /* Aligns them properly */
+    gap: 10px;  /* Adds space between text and logo */
+}
+
+h1 {
+    font-size: 140px;
+    font-weight: bold; /* Remove bold if needed */
+    margin: 0; /* Remove extra spacing */
+}
+
+.logo {
+    width: 80px; /* Adjust size as needed */
+    height: auto;
+}
+.or {
+    font-size: 50px !important; /* Adjust this to make it bigger */
+}
+
+.login,
+.signup {
+    width: 300px; /* Set the same width for both buttons */
+}
+
+/* Button Section */
+.buttons {
+    display: flex;
+    align-items: center;
+    gap: 25px; /* Controls spacing between elements */
+    margin-top: 20px;
+}
+
+/* Button Styling */
+button {
+    padding: 15px 40px;
+    font-size: 50px;
+    font-weight: bold;
+    border: 3px solid var(--black);
+    background-color: var(--white);
+    color: var(--black);
+    cursor: pointer;
+    border-radius: 12px;
+    transition: 0.3s ease-in-out;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    background-color: var(--light-gray);
+    transform: scale(1.05);
+}
+
+/* OR Text Styling */
+.or {
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--white);
+    padding: 0 10px;
+}
