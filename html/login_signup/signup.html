@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" type="image/png" href="FliplyPNGs/fliply_logo.png" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up - Fliply</title>
+    <link rel="stylesheet" href="../../css/css_login_signup/signup.css" />
+  </head>
+  <body class="signup-page">
+    <div class="signup-container">
+      <h1>Welcome!</h1>
+      <p>
+        Already have an account?
+        <a href="login.html"><strong>Sign In</strong></a>
+      </p>
+
+      <!-- Redirects to details.html after submission -->
+      <form action="details.html" method="GET">
+        <input type="email" placeholder="Enter Email" required />
+        <input type="text" placeholder="Create Username" required />
+        <input type="password" placeholder="Create Password" required />
+        <input type="password" placeholder="Confirm Password" required />
+        <button type="submit" class="signup-btn">Sign Up</button>
+      </form>
+
+      <img
+        src="../../FliplyPNGs/fliply_logo.png"
+        alt="Fliply Logo"
+        class="logo"
+      />
+    </div>
+  </body>
+</html>

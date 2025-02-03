@@ -1,0 +1,141 @@
+@font-face {
+    font-family: 'WorkSans';
+    src: url('../static/WorkSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'WorkSans';
+    src: url('../static/WorkSans-Bold.ttf') format('truetype');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'WorkSans';
+    src: url('../static/WorkSans-Italic.ttf') format('truetype');
+    font-style: italic;
+}
+/* Define the correct color palette */
+:root {
+    --white: #ffffff;
+    --black: #000000;
+    --off-white: #fcfcfc;
+    --light-gray: #bdbdbd;
+    --dark-gray: #343434;
+    --almost-black: #161615;
+    --dark-blue: #004a74;
+    --light-blue: #e3f3ff;
+    --medium-blue: #00659f;
+    --red: #ff3131;
+}
+
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'WorkSans', sans-serif;
+}
+
+
+/* General Styling */
+body {
+    background-color: var(--medium-blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'WorkSans', sans-serif;
+}
+
+/* Login Container */
+.login-container {
+    background: var(--white);
+    padding: 50px; /* Increased padding for more breathing room */
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: clamp(400px, 50vw, 700px);
+    max-width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px; /* Increased gap between elements */
+}
+
+/* Logo */
+.logo {
+    width: clamp(250px, 30vw, 400px);
+    height: auto;
+    margin-bottom: -50px; /* More space below logo */
+}
+
+/* Fliply Title */
+h1 {
+    font-size: clamp(50px, 6vw, 120px);
+    font-weight: bold;
+    margin-bottom: 20px; /* Adjusted spacing */
+}
+
+/* Input Fields */
+input {
+    width: 100%;
+    padding: 15px; /* Increased padding for better spacing */
+    margin: 15px 0; /* Increased margin for spacing */
+    border: 2px solid var(--dark-blue);
+    border-radius: 8px;
+    font-size: 18px;
+    outline: none;
+}
+
+/* Forgot Password Link */
+.forgot-password {
+    margin-top: 10px; /* Adds space above */
+    margin-bottom: 20px; /* Adds space below */
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--dark-blue);
+    transition: 0.2s;
+}
+
+.forgot-password:hover {
+    color: var(--medium-blue);
+}
+
+/* Login Button */
+.login-btn {
+    width: 100%;
+    padding: 18px; /* Increased padding to make the button taller */
+    background-color: var(--dark-blue);
+    color: var(--white);
+    font-size: 22px; /* Increased font size */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 30px; /* Moves button lower */
+
+}
+
+.login-btn:hover {
+    background-color: var(--medium-blue);
+}
+
+/* Create Account Link */
+p {
+    margin-top: 20px; /* More space above create account */
+    font-size: 18px;
+}
+
+p a {
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--dark-blue);
+    transition: 0.2s;
+}
+
+p a:hover {
+    color: var(--medium-blue);
+}

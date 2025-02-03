@@ -1,0 +1,222 @@
+@font-face {
+    font-family: 'WorkSans';
+    src: url('../static/WorkSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'WorkSans';
+    src: url('../static/WorkSans-Bold.ttf') format('truetype');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'WorkSans';
+    src: url('../static/WorkSans-Italic.ttf') format('truetype');
+    font-style: italic;
+}
+/* Define the correct color palette */
+:root {
+    --white: #ffffff;
+    --black: #000000;
+    --off-white: #fcfcfc;
+    --light-gray: #bdbdbd;
+    --dark-gray: #343434;
+    --almost-black: #161615;
+    --dark-blue: #004a74;
+    --light-blue: #e3f3ff;
+    --medium-blue: #00659f;
+    --red: #ff3131;
+}
+
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'WorkSans', sans-serif;
+}
+
+
+
+/* Background & Layout */
+body {
+    background-color: var(--medium-blue);
+    color: var(--white);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Ensures full viewport height */
+    font-family: 'WorkSans', sans-serif;
+}
+
+
+
+/* Header */
+header {
+    width: 100%;
+    position: absolute;
+    top: 12px;
+    right: 20px;
+    text-align: right;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.top-bar {
+    width: 100%;
+    height: 50px; /* Adjust height as needed */
+    background-color: var(--dark-blue); /* Matches the theme */
+    position: fixed; /* Keeps it at the top */
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Aligns contact text to the right */
+    padding: 0 20px;
+    z-index: 100; /* Ensures it stays above other content */
+}
+
+
+.contact {
+    color: var(--white);
+    cursor: pointer;
+
+}
+
+/* Main Content */
+.content {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px; /* Prevents excessive stretching */
+    padding: 20px;
+}
+
+
+/* Subtitle */
+.subtitle {
+    font-size: 30px;
+    max-width: 1100px;
+    line-height: 1.5;
+    margin-bottom: 40px;
+}
+
+.subtitle a {
+    color: var(--white);
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.save-grade {
+    display: block;  /* Moves "save your grade" to a new line */
+    font-weight: bold;
+    margin-top: 5px; /* Adds space above */
+    text-align: center;
+}
+
+.logo-container {
+    display: flex; /* Keeps text and logo together */
+    align-items: center;  /* Aligns them properly */
+    justify-content: center; /* Centers content */
+    flex-wrap: wrap; /* Allows it to stack on smaller screens */
+    gap: 0px;  /* Adds space between text and logo */
+    padding-left: 60px; /* Adjust as needed */
+
+}
+
+h1 {
+    font-size: clamp(80px, 10vw, 160px); /* Responsive font size */
+    font-weight: bold;
+    margin: 0; /* Remove forced spacing */
+}
+
+.logo {
+    width: clamp(200px, 20vw, 400px); /* Scales responsively */
+    height: auto;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px; /* Space between elements */
+    width: 100%;
+    max-width: 800px; /* Prevents excessive stretching */
+    margin: 0 auto; /* Centers the button group */
+    flex-wrap: nowrap; /* Prevents wrapping */
+}
+
+/* Ensure both buttons have the same width */
+.login, .signup {
+    margin-top: 40px;
+    width: 320px; /* Set a fixed width */
+    height: 100px; /* Ensure same height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+}
+
+/* Adjust "Or" to always be centered */
+.or {
+    
+    font-size: 40px;
+    font-weight: bold;
+    color: var(--white);
+    text-align: center;
+    margin: 0 10px; /* Space around the "Or" */
+    flex-shrink: 0; /* Prevents it from shrinking */
+    margin-top: 40px;
+}
+
+/* Make buttons stack on small screens */
+@media (max-width: 600px) {
+    .buttons {
+        flex-direction: column; /* Stack elements vertically */
+        align-items: center;
+        gap: 10px; /* Adjust gap for smaller screens */
+    }
+
+    .login, .signup {
+        width: 100%; /* Take full width */
+        max-width: 300px; /* Prevent buttons from being too wide */
+        height: 100px; /* Increase button height when stacked */
+        font-size: 50px; /* Adjust font size for better balance */
+    }
+
+    .or {
+        margin: 10px 0; /* Space above and below "Or" */
+        width: auto; /* Let it adjust to content */
+    }
+}
+
+
+
+/* Button Styling */
+button {
+    padding: 15px 40px;
+    font-size: 60px;
+    font-weight: normal;
+    border: 3px solid var(--black);
+    background-color: var(--dark-blue);
+    color: var(--white);
+    cursor: pointer;
+    border-radius: 12px;
+    transition: 0.3s ease-in-out;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    background-color: var(--light-gray);
+    transform: scale(1.05);
+}
+
+
+
+
+

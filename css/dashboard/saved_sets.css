@@ -1,0 +1,130 @@
+@font-face {
+    font-family: 'WorkSans';
+    src: url('../../static/WorkSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'WorkSans';
+    src: url('../static/WorkSans-Bold.ttf') format('truetype');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'WorkSans';
+    src: url('../static/WorkSans-Italic.ttf') format('truetype');
+    font-style: italic;
+}
+
+/* Define Color Palette */
+:root {
+    --white: #ffffff;
+    --black: #000000;
+    --off-white: #fcfcfc;
+    --light-gray: #bdbdbd;
+    --dark-gray: #343434;
+    --almost-black: #161615;
+    --dark-blue: #004a74;
+    --light-blue: #e3f3ff;
+    --medium-blue: #00659f;
+    --red: #ff3131;
+}
+
+/* Reset Default Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'WorkSans', sans-serif;
+}
+
+/* Full Page Layout */
+body {
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Navigation Bar */
+.top-nav {
+    width: 100%;
+    background-color: var(--dark-blue);
+    color: var(--white);
+    padding: 10px;
+    text-align: center;
+    font-size: clamp(15px, 2vw, 20px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    border-bottom: 3px solid var(--black);
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    height: 60px;
+}
+
+/* Navigation Items */
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 15px;
+    height: auto;
+    background-color: var(--medium-blue);
+    border-radius: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--white) !important;
+
+    
+}
+
+.nav-item-active{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 15px;
+    height: auto;
+    background-color: var(--medium-blue);
+    border-radius: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--white) !important;
+
+    
+}
+
+
+
+/* Nav Icons */
+.nav-item img {
+    width: 24px;
+    height: 24px;
+}
+
+/* Hover Effect */
+.nav-item:hover {
+    background-color: var(--light-blue);
+}
+
+/* Saved Sets Helper Image */
+.saved-sets-helper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.helper-img {
+    max-width: 100%;
+    height: auto;
+}

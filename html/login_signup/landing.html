@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="icon" type="image/png" href="../../FliplyPNGs/fliply_logo.png" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fliply - AI Flashcards</title>
-    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="../../css/css_login_signup/styles.css" />
   </head>
   <body>
-    <header>
+    <header class="top-bar">
       <span class="contact">Contact Us</span>
     </header>
 
@@ -16,7 +17,7 @@
         <div class="logo-container">
           <h1>Fliply</h1>
           <img
-            src="FliplyPNGs/fliply_logo.png"
+            src="../../FliplyPNGs/fliply_logo.png"
             alt="Fliply Logo"
             class="logo"
           />
@@ -27,9 +28,15 @@
           <span class="save-grade"><a href="#">save your grade</a></span>
         </p>
         <div class="buttons">
-          <button class="login">Login</button>
+          <button class="login" onclick="window.location.href='login.html';">
+            Login
+          </button>
+
           <span class="or">Or</span>
-          <button class="signup">Sign Up</button>
+
+          <button class="signup" onclick="window.location.href='signup.html';">
+            Sign Up
+          </button>
         </div>
       </div>
     </main>
