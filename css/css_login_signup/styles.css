@@ -93,7 +93,7 @@ header {
     justify-content: center;
     align-items: center;
     width: 100%;
-    max-width: 1200px; /* Prevents excessive stretching */
+    max-width: 1000px; /* Prevents excessive stretching */
     padding: 20px;
 }
 
