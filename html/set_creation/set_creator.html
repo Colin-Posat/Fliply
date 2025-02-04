@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" type="image/png" href="../../FliplyPNGs/favicon.ico" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Set - Fliply</title>
+    <link rel="stylesheet" href="../../css/set_creation/set_creator.css" />
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="top-nav">
+      <a href="../dashboard/created_sets.html" class="nav-item active">
+        <img src="../../FliplyPNGs/my sets icon.png" alt="Created Sets Icon" />
+        Created Sets
+      </a>
+      <a href="../dashboard/saved_sets.html" class="nav-item">
+        <img src="../../FliplyPNGs/saved sets icon.png" alt="Saved Sets Icon" />
+        Saved Sets
+      </a>
+      <a href="../dashboard/search_sets.html" class="nav-item">
+        <img
+          src="../../FliplyPNGs/search sets icon.png"
+          alt="Search Sets Icon"
+        />
+        Search Sets
+      </a>
+      <a href="../dashboard/profile.html" class="nav-item">
+        <img src="../../FliplyPNGs/your profile icon.png" alt="Profile Icon" />
+        Profile
+      </a>
+    </nav>
+
+    <!-- Controls Container (Top Section) -->
+    <div class="controls-container">
+      <!-- Left: Set Title & Class Code -->
+      <div class="set-title-container">
+        <input
+          type="text"
+          class="set-title"
+          placeholder="Set Title Eg. BIO 101 Midterm"
+        />
+        <input type="text" class="class-code" placeholder="Class Code" />
+      </div>
+
+      <!-- Right: Save & Publish Buttons -->
+      <div class="save-buttons-container">
+        <button class="save-btn">Save</button>
+        <button class="publish-btn">Save and Publish</button>
+      </div>
+    </div>
+
+    <div class="ai-generate-container">
+      <button class="ai-generate-btn">✨ AI Generate Cards From Notes</button>
+    </div>
+
+    <!-- Flashcard List Container -->
+    <div class="flashcard-container" id="flashcard-list">
+      <!-- Default Flashcard -->
+      <div class="flashcard">
+        <span class="card-number">1</span>
+        <div class="question-container">
+          <label>Question:</label>
+          <textarea placeholder="Enter Your Question"></textarea>
+        </div>
+        <div class="answer-container">
+          <label>Answer:</label>
+          <textarea placeholder="Enter Your Answer"></textarea>
+        </div>
+        <button class="delete-card">✖</button>
+      </div>
+    </div>
+
+    <!-- Add New Card Button -->
+    <button class="add-card-btn" id="add-card-btn">+ Add a New Card</button>
+  </body>
+</html>
