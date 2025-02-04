@@ -45,7 +45,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
+    padding: 30px;
 }
 
 /* Navigation Bar */
@@ -64,7 +64,7 @@ body {
     display: flex;
     justify-content: center;
     gap: 20px;
-    height: 60px; /* Fixed height for proper button positioning */
+    height: 60px;
 }
 
 /* Navigation Items */
@@ -80,30 +80,12 @@ body {
     text-decoration: none;
     color: var(--white) !important;
     font-weight: normal !important;
-
-    
 }
 
-.top-nav .nav-item.active{
+.top-nav .nav-item.active {
     pointer-events: none; /* Disables clicking */
-    text-decoration: none;
-    color: var(--white) !important;
     font-weight: 700 !important;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 8px 15px;
-    height: auto;
-    background-color: var(--medium-blue);
-    border-radius: 20px;
-    cursor: pointer;
-
-    
-    
-
-    
 }
-
 
 /* Nav Icons */
 .nav-item img {
@@ -116,56 +98,101 @@ body {
     background-color: var(--light-blue);
 }
 
-/* Create Set Button - Always Below Nav Bar, Fixed When Scrolling */
-.create-set-btn {
-    position: fixed; /* Ensures it stays below the nav bar even when scrolling */
-    top: 70px; /* Dynamically positions it below the nav bar */
-    left: 20px; /* Aligns it to the left */
-    padding: clamp(12px, 1vw, 15px) clamp(15px, 2vw, 20px);
-    font-size: clamp(18px, 2vw, 25px);
-    font-weight: bold;
-    background-color: var(--dark-blue);
-    color: var(--white);
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    width: max-content;
-    white-space: nowrap;
-    z-index: 1000; /* Ensures it stays above other content */
+/* Hover Effect */
+.nav-item:hover {
+    background-color: var(--light-blue);
 }
 
-/* Plus Sign Styling */
-.plus-sign {
-    font-size: clamp(20px, 3vw, 32px);
-    font-weight: bold;
-    margin-right: 5px;
-    line-height: 1;
-}
-
-.create-set-btn:hover {
-    background-color: var(--medium-blue);
-}
-
-/* Create Set Helper Image */
-.create-set-helper {
+/* Back Button */
+.back-btn {
     position: absolute;
+    left: 15px;
+    font-size: 28px;
+    text-decoration: none;
+    color: var(--white);
+    background-color: var(--dark-gray);
+    padding: 8px 14px;
+    border-radius: 12px;
+}
+
+
+
+/* Profile Container - Centered & Larger */
+.profile-container {
+    width: 90%;
+    max-width: 900px; /* Increased width */
+    height: 40%;
+    min-height: 620px; /* Makes it taller */
+    padding: 50px; /* Increased padding for more space */
+    background-color: var(--light-blue);
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    position: absolute; /* Center it absolutely */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+/* Profile Header */
+.profile-header {
     display: flex;
+    flex-direction: column; /* Stacked layout */
     align-items: center;
     justify-content: center;
-    width: 100%;
-    max-width: 1000px;
+    gap: 20px;
 }
 
-.helper-img {
-    max-width: 100%;
+/* Profile Picture */
+.profile-pic {
+    width: 250px;
     height: auto;
+
 }
 
+/* Profile Info */
+.profile-info {
+    text-align: center;
+}
 
+.profile-info h2 {
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 15px;
+}
+
+.profile-info .likes {
+    font-size: 26px;
+    font-weight: bold;
+    padding-bottom: 15px;
+}
+
+/* Profile Buttons */
+.profile-buttons {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column; /* Stacked buttons */
+    width: 100%;
+    gap: 15px;
+    justify-content: center;
+}
+
+.edit-btn, .signout-btn {
+    padding: 15px 25px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: var(--dark-blue);
+    color: var(--white);
+    border: 9px;
+    border-color: #000000;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 100%; /* Full width for stacked buttons */
+}
+
+.edit-btn:hover, .signout-btn:hover {
+    background-color: var(--medium-blue);
+}

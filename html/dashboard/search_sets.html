@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="icon" type="image/png" href="../../FliplyPNGs/favicon.png" />
+    <link rel="icon" type="image/png" href="../../FliplyPNGs/favicon.ico" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Saved Sets - Fliply</title>
-    <link rel="stylesheet" href="../../css/dashboard/saved_sets.css" />
+    <title>Search Sets - Fliply</title>
+    <link rel="stylesheet" href="../../css/dashboard/search_sets.css" />
   </head>
-  <body class="saved-sets-page">
+  <body class="search-sets-page">
     <!-- Navigation Bar -->
     <nav class="top-nav">
       <a href="created_sets.html" class="nav-item">
         <img src="../../FliplyPNGs/my sets icon.png" alt="Created Sets Icon" />
         Created Sets
       </a>
-      <a href="saved_sets.html" class="nav-item active">
+      <a href="saved_sets.html" class="nav-item">
         <img src="../../FliplyPNGs/saved sets icon.png" alt="Saved Sets Icon" />
         Saved Sets
       </a>
-      <a href="search_sets.html" class="nav-item">
+      <a class="nav-item active">
         <img
           src="../../FliplyPNGs/search sets icon.png"
           alt="Search Sets Icon"
@@ -31,13 +31,14 @@
       </a>
     </nav>
 
-    <!-- Saved Sets Helper Image -->
-    <div class="saved-sets-helper">
-      <img
-        src="../../FliplyPNGs/saved sets helper.png"
-        alt="Saved Set Helper"
-        class="helper-img"
-      />
+    <!-- Search Container -->
+    <div class="search-container">
+      <h2>Find Flashcards for Your Class!</h2>
+      <input type="text" class="search-bar" placeholder="Enter Class Code" />
+      <button class="search-btn">
+        <img src="../../FliplyPNGs/search sets icon.png" alt="Search Icon" />
+        Find Flashcards
+      </button>
     </div>
   </body>
 </html>

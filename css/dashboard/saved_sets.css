@@ -64,7 +64,7 @@ body {
     display: flex;
     justify-content: center;
     gap: 20px;
-    height: 60px;
+    height: 60px; /* Fixed height for proper button positioning */
 }
 
 /* Navigation Items */
@@ -79,11 +79,16 @@ body {
     cursor: pointer;
     text-decoration: none;
     color: var(--white) !important;
+    font-weight: normal !important;
 
     
 }
 
-.nav-item-active{
+.top-nav .nav-item.active{
+    pointer-events: none; /* Disables clicking */
+    text-decoration: none;
+    color: var(--white) !important;
+    font-weight: 700 !important;
     display: flex;
     align-items: center;
     gap: 6px;
@@ -92,12 +97,12 @@ body {
     background-color: var(--medium-blue);
     border-radius: 20px;
     cursor: pointer;
-    text-decoration: none;
-    color: var(--white) !important;
+
+    
+    
 
     
 }
-
 
 
 /* Nav Icons */
