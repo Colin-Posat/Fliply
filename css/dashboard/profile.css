@@ -5,6 +5,7 @@
     font-style: normal;
 }
 
+
 @font-face {
     font-family: 'WorkSans';
     src: url('../static/WorkSans-Bold.ttf') format('truetype');
@@ -16,6 +17,9 @@
     src: url('../static/WorkSans-Italic.ttf') format('truetype');
     font-style: italic;
 }
+
+
+
 
 /* Define Color Palette */
 :root {
@@ -48,72 +52,6 @@ body {
     padding: 30px;
 }
 
-/* Navigation Bar */
-.top-nav {
-    width: 100%;
-    background-color: var(--dark-blue);
-    color: var(--white);
-    padding: 10px;
-    text-align: center;
-    font-size: clamp(15px, 2vw, 20px);
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    border-bottom: 3px solid var(--black);
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    height: 60px;
-}
-
-/* Navigation Items */
-.nav-item {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 8px 15px;
-    height: auto;
-    background-color: var(--medium-blue);
-    border-radius: 20px;
-    cursor: pointer;
-    text-decoration: none;
-    color: var(--white) !important;
-    font-weight: normal !important;
-}
-
-.top-nav .nav-item.active {
-    pointer-events: none; /* Disables clicking */
-    font-weight: 700 !important;
-}
-
-/* Nav Icons */
-.nav-item img {
-    width: 24px;
-    height: 24px;
-}
-
-/* Hover Effect */
-.nav-item:hover {
-    background-color: var(--light-blue);
-}
-
-/* Hover Effect */
-.nav-item:hover {
-    background-color: var(--light-blue);
-}
-
-/* Back Button */
-.back-btn {
-    position: absolute;
-    left: 15px;
-    font-size: 28px;
-    text-decoration: none;
-    color: var(--white);
-    background-color: var(--dark-gray);
-    padding: 8px 14px;
-    border-radius: 12px;
-}
 
 
 
@@ -155,7 +93,7 @@ body {
 }
 
 .profile-info h2 {
-    font-size: 50px;
+    font-size: clamp(30px, 5vw, 50px);
     display: flex;
     justify-content: center;
     align-items: center;

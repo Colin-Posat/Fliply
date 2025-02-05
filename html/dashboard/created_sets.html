@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Created Sets - Fliply</title>
     <link rel="stylesheet" href="../../css/dashboard/created_sets.css" />
+    <link rel="stylesheet" href="../../css/nav_bar.css" />
   </head>
   <body class="created-sets-page">
     <!-- Navigation Bar -->
@@ -31,6 +32,9 @@
       </a>
     </nav>
 
+    <!-- flashcard display -->
+    <div id="sets-container" class="sets-container"></div>
+
     <!-- Create Set Button -->
     <button
       onclick="location.href='../set_creation/set_creator.html' "
@@ -40,7 +44,7 @@
     </button>
 
     <!-- Create Set Helper Image -->
-    <div class="create-set-helper">
+    <div id="create-set-helper" class="create-set-helper">
       <img
         src="../../FliplyPNGs/create set helper.png"
         alt="Create Set Helper"
@@ -48,4 +52,5 @@
       />
     </div>
   </body>
+  <script src="../../js/created_sets.js"></script>
 </html>

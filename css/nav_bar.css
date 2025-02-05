@@ -1,0 +1,104 @@
+/* Navigation Bar */
+.top-nav {
+    width: 100%;
+    background-color: var(--dark-blue);
+    color: var(--white);
+    padding: 10px;
+    font-size: clamp(14px, 1.5vw, 20px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    border-bottom: 3px solid var(--black);
+
+    /* Flexbox for centering */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centers all items */
+    gap: 10px;
+    flex-wrap: wrap; /* Allows wrapping if needed */
+    padding: 10px 15px;
+}
+
+/* Back Button (Stays at the left but part of the center group) */
+.back-button {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 15px;
+    background-color: var(--medium-blue);
+    border-radius: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--white) !important;
+    font-weight: normal !important;
+    flex-shrink: 0; /* Prevents it from resizing */
+}
+
+/* Adjust Back Button Icon */
+.back-button img {
+    width: 24px;
+    height: 24px;
+}
+
+/* Navigation Items */
+.nav-items {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap; /* Allows items to wrap when needed */
+}
+
+/* Individual Navigation Buttons */
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 15px;
+    background-color: var(--medium-blue);
+    border-radius: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--white) !important;
+    font-weight: normal !important;
+    white-space: nowrap; /* Prevents text from breaking */
+    flex-shrink: 0; /* Ensures buttons stay close together */
+}
+
+/* Nav Icons */
+.nav-item img {
+    width: 24px;
+    height: 24px;
+}
+
+.top-nav .nav-item.active {
+    pointer-events: none;
+    font-weight: 700 !important;
+}
+
+
+/* Hover Effect */
+.nav-item:hover {
+    background-color: var(--light-blue);
+}
+
+
+
+/* Responsive Nav Bar (Shrink Buttons on Small Screens) */
+@media (max-width: 768px) {
+    .nav-item {
+        padding: 6px 10px; /* Make buttons smaller */
+        font-size: 14px; /* Reduce text size */
+    }
+
+    .back-button {
+        padding: 6px 10px; /* Shrink back button */
+    }
+
+    .back-button img,
+    .nav-item img {
+        width: 10px; /* Make icons smaller */
+        height: 10px;
+    }
+}
+

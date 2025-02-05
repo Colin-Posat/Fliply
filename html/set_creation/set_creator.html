@@ -6,10 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Create Set - Fliply</title>
     <link rel="stylesheet" href="../../css/set_creation/set_creator.css" />
+    <link rel="stylesheet" href="../../css/nav_bar.css" />
   </head>
   <body>
     <!-- Navigation Bar -->
     <nav class="top-nav">
+      <a href="../dashboard/created_sets.html" class="nav-item back-button">
+        <img src="../../FliplyPNGs/back button.png" alt="Back Icon" />
+      </a>
       <a href="../dashboard/created_sets.html" class="nav-item active">
         <img src="../../FliplyPNGs/my sets icon.png" alt="Created Sets Icon" />
         Created Sets
@@ -45,13 +49,22 @@
 
       <!-- Right: Save & Publish Buttons -->
       <div class="save-buttons-container">
-        <button class="save-btn">Save</button>
-        <button class="publish-btn">Save and Publish</button>
+        <button class="save-btn" onclick="saveFlashcardSet(false)">Save</button>
+        <button class="publish-btn" onclick="saveFlashcardSet(true)">
+          Save and Publish
+        </button>
       </div>
     </div>
 
     <div class="ai-generate-container">
-      <button class="ai-generate-btn">✨ AI Generate Cards From Notes</button>
+      <button class="ai-generate-btn">
+        <img
+          src="../../FliplyPNGs/ai stars icon.png"
+          alt="AI Icon"
+          class="ai-icon"
+        />
+        <span>AI Generate Cards</span>
+      </button>
     </div>
 
     <!-- Flashcard List Container -->
@@ -74,4 +87,5 @@
     <!-- Add New Card Button -->
     <button class="add-card-btn" id="add-card-btn">+ Add a New Card</button>
   </body>
+  <script src="../../js/set_creator.js"></script>
 </html>
