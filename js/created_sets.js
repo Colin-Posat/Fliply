@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const savedSets = JSON.parse(localStorage.getItem("flashcardSets")) || [];
 
     if (savedSets.length === 0) {
-        setsContainer.innerHTML = "<p>No sets created yet.</p>";
+
         return;
     }
 

@@ -45,6 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const deleteButton = document.createElement("button");
         deleteButton.classList.add("delete-card");
         deleteButton.innerHTML = "✖";
+        
         deleteButton.addEventListener("click", () => {
             flashcard.remove();
             updateCardNumbers();
@@ -61,9 +62,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Function to update card numbers after adding/removing
     function updateCardNumbers() {
-        const cards = document.querySelectorAll(".flashcard .card-number");
-        cards.forEach((card, index) => {
-            card.textContent = index + 1; // Re-number the cards dynamically
+        const flashcards = document.querySelectorAll(".flashcard");
+        flashcards.forEach((card, index) => {
+            card.querySelector(".card-number").textContent = index + 1; // Reassign numbers correctly
         });
     }
 
