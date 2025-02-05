@@ -18,7 +18,11 @@
     font-style: italic;
 }
 
-
+html, body {
+    background-color: var(--light-blue); /* Apply a color that matches the profile */
+    min-height: 100vh; /* Prevents white gaps */
+    overflow-x: hidden; /* Stops unnecessary scrolling */
+}
 
 
 /* Define Color Palette */
@@ -50,18 +54,20 @@ body {
     flex-direction: column;
     align-items: center;
     padding: 30px;
+    min-height: 100vh;
 }
 
 
 
 
-/* Profile Container - Centered & Larger */
+/* Profile Container - R
+esponsive Height */
 .profile-container {
+    margin-top: 30px;
     width: 90%;
-    max-width: 900px; /* Increased width */
-    height: 40%;
-    min-height: 620px; /* Makes it taller */
-    padding: 50px; /* Increased padding for more space */
+    max-width: 900px; /* Ensures it doesn't stretch too wide */
+    min-height: 620px; /* Ensures a reasonable default height */
+    padding: 50px; /* Space around content */
     background-color: var(--light-blue);
     border-radius: 20px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
@@ -70,6 +76,12 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: auto; /* Automatically expands based on content */
+    max-height: 90vh; /* Prevents it from growing too much */
+
 }
 /* Profile Header */
 .profile-header {

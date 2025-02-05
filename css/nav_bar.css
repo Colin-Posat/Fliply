@@ -16,7 +16,7 @@
     align-items: center;
     justify-content: center; /* Centers all items */
     gap: 10px;
-    flex-wrap: wrap; /* Allows wrapping if needed */
+
     padding: 10px 15px;
 }
 
@@ -88,11 +88,11 @@
 @media (max-width: 768px) {
     .nav-item {
         padding: 6px 10px; /* Make buttons smaller */
-        font-size: 14px; /* Reduce text size */
+        font-size: 8px; /* Reduce text size */
     }
 
     .back-button {
-        padding: 6px 10px; /* Shrink back button */
+        padding: 2px 6px; /* Shrink back button */
     }
 
     .back-button img,

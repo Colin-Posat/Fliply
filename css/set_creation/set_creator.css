@@ -163,11 +163,11 @@ body {
 /* Flashcard Container (Below AI Generate Button) */
 .flashcard-container {
     width: 99%;
-
     margin-top: 20px; /* Ensure space below AI Generate Button */
     display: flex;
     flex-direction: column;
     gap: 15px;
+
 }
 
 /* Individual Flashcard */
@@ -182,6 +182,9 @@ body {
     gap: 10px;
     position: relative;
     border: 2px solid #000000;
+    height: 220px;
+    margin-bottom: 15px;
+    margin-top: 15px;
 }
 
 /* Card Number */
