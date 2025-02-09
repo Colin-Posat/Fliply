@@ -84,9 +84,25 @@ document.addEventListener("DOMContentLoaded", () => {
     // Navigation Items Confirmation
     navItems.forEach((item) => {
         item.addEventListener("click", (event) => {
-            if(flashcardContainer.children.length === 1){
+            
+            
+            let hasText = false;
+            document.querySelectorAll(".flashcard").forEach((flashcard) => {
+                const questionText = flashcard.querySelector(".question-container textarea").value.trim();
+                const answerText = flashcard.querySelector(".answer-container textarea").value.trim();
+                if (questionText || answerText) {
+                    hasText = true;
+                }
+            });
+
+            if (flashcardContainer.children.length === 1 && !hasText) {
                 return;
             }
+    
+            if (!hasText) {
+                return; // Prevent navigation if all flashcards are empty
+            }
+
             event.preventDefault();
             const destination = item.getAttribute("href"); // Get the target link
             showExitConfirmation(destination);

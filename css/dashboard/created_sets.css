@@ -219,5 +219,44 @@ body {
     height: 20px;
 }
 
+/* Reduce size for smaller heights */
+@media (max-height: 800px) {
+    .create-set-helper {
+        max-width: 800px; /* Shrink the max width */
+    }
 
+    .helper-img {
+        max-width: 100%; /* Scale image down */
+    }
+}
+
+@media (max-height: 600px) {
+    .create-set-helper {
+        max-width: 600px; /* Further reduce max width */
+    }
+
+    .helper-img {
+        max-width: 90%;
+    }
+}
+
+@media (max-height: 450px) {
+    .create-set-helper {
+        max-width: 400px;
+    }
+
+    .helper-img {
+        max-width: 80%;
+    }
+}
+
+@media (max-height: 350px) {
+    .create-set-helper {
+        max-width: 350px;
+    }
+
+    .helper-img {
+        max-width: 70%;
+    }
+}
 

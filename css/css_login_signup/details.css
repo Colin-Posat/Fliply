@@ -107,3 +107,109 @@ input {
     height: auto;
     margin-top: auto;
 }
+
+/* New Stage: Logo still visible, everything smaller */
+@media (max-height: 870px) {
+    .details-container {
+        padding: 25px 35px;
+        max-height: 82vh;
+    }
+
+    h1 {
+        font-size: clamp(34px, 4.5vw, 90px);
+    }
+
+    input {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .details-btn {
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    .logo {
+        width: clamp(160px, 22vw, 250px);
+    }
+}
+
+@media (max-height: 770px) {
+    .details-container {
+        padding: 20px 30px;
+        max-height: 90vh;
+    }
+
+    h1 {
+        font-size: clamp(30px, 4vw, 80px);
+    }
+
+    input {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .details-btn {
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    .logo {
+        width: clamp(140px, 18vw, 240px);
+    }
+}
+
+/* At 450px, logo disappears and scrolling enabled */
+@media (max-height: 690px) {
+    .details-container {
+        padding: 15px 20px;
+        max-height: 75vh;
+        overflow: scroll;
+        height: 60vh;
+    }
+
+    h1 {
+        font-size: clamp(24px, 3.5vw, 60px);
+    }
+
+    input {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    .details-btn {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .logo {
+        display: none;
+    }
+}
+
+/* At 350px, even smaller and scroll enabled */
+@media (max-height: 350px) {
+    .details-container {
+        padding: 10px 15px;
+        max-height: 70vh;
+        overflow: scroll;
+    }
+
+    h1 {
+        font-size: clamp(20px, 3vw, 50px);
+    }
+
+    input {
+        padding: 6px;
+        font-size: 10px;
+    }
+
+    .details-btn {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    .logo {
+        display: none;
+    }
+}

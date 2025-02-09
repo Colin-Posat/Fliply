@@ -63,6 +63,7 @@
     font-weight: normal !important;
     white-space: nowrap; /* Prevents text from breaking */
     flex-shrink: 0; /* Ensures buttons stay close together */
+    transition: 0.3s;
 }
 
 /* Nav Icons */
