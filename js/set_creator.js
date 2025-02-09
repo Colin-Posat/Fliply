@@ -1,91 +1,127 @@
 document.addEventListener("DOMContentLoaded", () => {
+
+
     const flashcardContainer = document.getElementById("flashcard-list");
     const addCardBtn = document.getElementById("add-card-btn");
+    const setTitleInput = document.querySelector(".set-title");
+    const classCodeInput = document.querySelector(".class-code");
+
+    // Ensure the first flashcard exists and behaves like a dynamic one
+    if (flashcardContainer.children.length === 1) {
+        setupFlashcard(flashcardContainer.children[0], 1);
+    }
+    
+    let editingaSet = false;
+    
+
+    // 💥 Check if an existing set is being edited
+    let editingSet = JSON.parse(localStorage.getItem("editingFlashcardSet"));
+
+    if (editingSet) {
+        editingaSet = true;
+
+        console.log("Editing an existing set:", editingSet);
+
+        setTitleInput.value = editingSet.title || "";
+        classCodeInput.value = editingSet.classCode || "";
+
+        if (Array.isArray(editingSet.flashcards) && editingSet.flashcards.length > 0) {
+            flashcardContainer.innerHTML = ""; // ✅ Clears any pre-existing flashcards to prevent duplicates
+            editingSet.flashcards.forEach((card, index) => {
+                const flashcard = createFlashcard(index + 1);
+                flashcard.querySelector(".question-container textarea").value = card.question;
+                flashcard.querySelector(".answer-container textarea").value = card.answer;
+                flashcardContainer.appendChild(flashcard);
+            });
+        } else {
+            console.warn("⚠ No flashcards found in this set. Initializing a single empty flashcard.");
+            flashcardContainer.innerHTML = ""; // ✅ Clears to prevent duplicates
+            flashcardContainer.appendChild(createFlashcard(1));
+        }
+
+       
+    } 
+
+    
 
 
-
+    
 
     // Function to create a new flashcard
     function createFlashcard(number) {
         const flashcard = document.createElement("div");
         flashcard.classList.add("flashcard");
-
-        // Card Number
-        const cardNumber = document.createElement("span");
-        cardNumber.classList.add("card-number");
-        cardNumber.textContent = number;
-
-        // Question Container
-        const questionContainer = document.createElement("div");
-        questionContainer.classList.add("question-container");
-
-        const questionLabel = document.createElement("label");
-        questionLabel.textContent = "Question:";
-
-        const questionTextarea = document.createElement("textarea");
-        questionTextarea.placeholder = "Enter Your Question";
-
-        questionContainer.appendChild(questionLabel);
-        questionContainer.appendChild(questionTextarea);
-
-        // Answer Container
-        const answerContainer = document.createElement("div");
-        answerContainer.classList.add("answer-container");
-
-        const answerLabel = document.createElement("label");
-        answerLabel.textContent = "Answer:";
-
-        const answerTextarea = document.createElement("textarea");
-        answerTextarea.placeholder = "Enter Your Answer";
-
-        answerContainer.appendChild(answerLabel);
-        answerContainer.appendChild(answerTextarea);
-
-        // Delete Button
-        const deleteButton = document.createElement("button");
-        deleteButton.classList.add("delete-card");
-        deleteButton.innerHTML = "✖";
-        
-        deleteButton.addEventListener("click", () => {
-            flashcard.remove();
-            updateCardNumbers();
-        });
-
-        // Append elements to flashcard
-        flashcard.appendChild(cardNumber);
-        flashcard.appendChild(questionContainer);
-        flashcard.appendChild(answerContainer);
-        flashcard.appendChild(deleteButton);
-
+        setupFlashcard(flashcard, number);
         return flashcard;
+    }
+
+    // Function to set up a flashcard (for both pre-existing and dynamically created flashcards)
+    function setupFlashcard(flashcard, number) {
+        flashcard.innerHTML = `
+            <span class="card-number">${number}</span>
+            <div class="question-container">
+                <label>Question:</label>
+                <textarea placeholder="Enter Your Question"></textarea>
+            </div>
+            <div class="answer-container">
+                <label>Answer:</label>
+                <textarea placeholder="Enter Your Answer"></textarea>
+            </div>
+            <button class="delete-card">✖</button>
+        `;
+
+        const deleteButton = flashcard.querySelector(".delete-card");
+        deleteButton.addEventListener("click", () => deleteFlashcard(flashcard));
+
+        flashcardContainer.appendChild(flashcard);
+    }
+
+    // Function to delete a flashcard
+    function deleteFlashcard(flashcard) {
+        const flashcards = Array.from(flashcardContainer.children);
+
+        if (flashcards.length > 1 && flashcards[0] === flashcard) {
+            // If deleting the first flashcard, copy the second card’s content into it
+            const secondFlashcard = flashcards[1];
+
+            flashcards[0].querySelector(".question-container textarea").value =
+                secondFlashcard.querySelector(".question-container textarea").value;
+            flashcards[0].querySelector(".answer-container textarea").value =
+                secondFlashcard.querySelector(".answer-container textarea").value;
+
+            // Remove the second flashcard
+            secondFlashcard.remove();
+        } else if (flashcards.length > 1) {
+            // Remove the selected flashcard normally
+            flashcard.remove();
+        } else {
+            // If it's the only flashcard, reset it instead of deleting
+            flashcard.querySelector(".question-container textarea").value = "";
+            flashcard.querySelector(".answer-container textarea").value = "";
+        }
+
+        updateCardNumbers();
     }
 
     // Function to update card numbers after adding/removing
     function updateCardNumbers() {
-        const flashcards = document.querySelectorAll(".flashcard");
-        flashcards.forEach((card, index) => {
-            card.querySelector(".card-number").textContent = index + 1; // Reassign numbers correctly
+        document.querySelectorAll(".flashcard").forEach((card, index) => {
+            card.querySelector(".card-number").textContent = index + 1;
         });
     }
 
     // Event Listener for Adding a New Flashcard
     addCardBtn.addEventListener("click", () => {
-        const newCardNumber = flashcardContainer.children.length + 1;
-        const newFlashcard = createFlashcard(newCardNumber);
+        const newFlashcard = createFlashcard(flashcardContainer.children.length + 1);
         flashcardContainer.appendChild(newFlashcard);
         updateCardNumbers();
     });
 
-
     const navItems = document.querySelectorAll(".nav-item"); // Select all nav links
-
- 
 
     // Navigation Items Confirmation
     navItems.forEach((item) => {
         item.addEventListener("click", (event) => {
-            
-            
             let hasText = false;
             document.querySelectorAll(".flashcard").forEach((flashcard) => {
                 const questionText = flashcard.querySelector(".question-container textarea").value.trim();
@@ -98,7 +134,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (flashcardContainer.children.length === 1 && !hasText) {
                 return;
             }
-    
+
             if (!hasText) {
                 return; // Prevent navigation if all flashcards are empty
             }
@@ -139,13 +175,12 @@ document.addEventListener("DOMContentLoaded", () => {
             const setTitle = document.querySelector(".set-title").value.trim();
             const classCode = document.querySelector(".class-code").value.trim();
 
-            // If missing required fields, show an alert instead of navigating
             if (!setTitle || !classCode) {
                 alert("Please provide a title and class code.");
-                return; // Stop the function, do not navigate
+                return; // Stop function, do not navigate
             }
             saveFlashcardSet(false);
-            window.location.href = destination; // Navigate to the clicked link
+            window.location.href = destination;
         });
 
         document.querySelector(".exit-no-save").addEventListener("click", () => {
@@ -157,12 +192,9 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-
-
-    window.saveFlashcardSet = function(isPublic) {
-        console.log("Saving flashcard set...", isPublic);  // Debugging check
+    window.saveFlashcardSet = function (isPublic) {
+        console.log("Saving flashcard set...", isPublic);
     
-        // Get Set Title & Class Code
         const setTitle = document.querySelector(".set-title").value.trim();
         const classCode = document.querySelector(".class-code").value.trim();
     
@@ -171,13 +203,12 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
     
-        // Get all flashcards
         const flashcards = [];
         document.querySelectorAll(".flashcard").forEach((card) => {
             const question = card.querySelector(".question-container textarea").value.trim();
             const answer = card.querySelector(".answer-container textarea").value.trim();
     
-            if (question && answer) {
+            if (question || answer) {
                 flashcards.push({ question, answer });
             }
         });
@@ -187,28 +218,95 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
     
-        // Choose icon based on public/private status
         const icon = isPublic ? "../../FliplyPNGs/public flashcard icon.png" : "../../FliplyPNGs/private flashcard.png";
     
-        // Create Flashcard Set Object
-        const flashcardSet = {
-            title: setTitle,
+        let savedSets = JSON.parse(localStorage.getItem("flashcardSets")) || [];
+        let editingSet = JSON.parse(localStorage.getItem("editingFlashcardSet"));
+
+
+        if (editingaSet) {
+            let savedSets = JSON.parse(localStorage.getItem("flashcardSets")) || [];
+            let editingSet = JSON.parse(localStorage.getItem("editingFlashcardSet"));
+            console.log(editingSet);
+
+            if (!editingSet || !editingSet.id) {
+                console.warn("⚠ No editing set found or missing ID.");
+                return;
+            }
+
+            // ✅ Find the index of the set with the same ID
+            let setIndex = savedSets.findIndex(set => set.id === editingSet.id);
+
+            if (setIndex !== -1) {
+                // ✅ Extract updated values from HTML
+            let updatedTitle = document.querySelector(".set-title").value.trim();
+            let updatedClassCode = document.querySelector(".class-code").value.trim();
+
+            // ✅ Extract updated flashcards
+            let updatedFlashcards = [];
+            document.querySelectorAll(".flashcard").forEach((card) => {
+                let question = card.querySelector(".question-container textarea").value.trim();
+                let answer = card.querySelector(".answer-container textarea").value.trim();
+
+                // ✅ Update `editingSet` with the new values
+            editingSet.title = updatedTitle;
+            editingSet.classCode = updatedClassCode;
+            editingSet.flashcards = updatedFlashcards;
+            editingSet.numCards = updatedFlashcards.length; // ✅ Update flashcard count
+            
+            if (question || answer) {  // ✅ Ensure at least one field is filled
+                updatedFlashcards.push({ question, answer });
+            }
+        });
+
+        // ✅ Update `editingSet` with the new values
+        editingSet.title = updatedTitle;
+        editingSet.classCode = updatedClassCode;
+        editingSet.flashcards = updatedFlashcards;
+        editingSet.numCards = updatedFlashcards.length; // ✅ Update flashcard count
+                console.log(`✅ Found and updating set at index: ${setIndex}`);
+
+                // ✅ Update the saved set with the new values
+                savedSets[setIndex].title = editingSet.title;
+                savedSets[setIndex].classCode = editingSet.classCode;
+                savedSets[setIndex].flashcards = editingSet.flashcards;
+                savedSets[setIndex].numCards = editingSet.flashcards.length; // ✅ Update the card count
+
+                // ✅ Save the updated sets back to localStorage
+                localStorage.setItem("flashcardSets", JSON.stringify(savedSets));
+                console.log("✅ Flashcard set updated successfully:", savedSets[setIndex]);
+            } else {
+                console.warn("⚠ Editing set not found in saved sets.");
+            }
+        } else {
+            console.log("Creating a new flashcard set");
+            createNewFlashcardSet(setTitle, classCode, flashcards, isPublic, icon);
+        }
+        debugger;
+
+    
+        window.location.href = "../dashboard/created_sets.html";
+    };
+    
+    // ✅ Function to create a new flashcard set
+    function createNewFlashcardSet(title, classCode, flashcards, isPublic, icon) {
+        let savedSets = JSON.parse(localStorage.getItem("flashcardSets")) || [];
+        const newFlashcardSet = {
+            id: crypto.randomUUID(), // ✅ Generate a unique ID for the new set
+            title: title,
             classCode: classCode,
             numCards: flashcards.length,
+            flashcards: flashcards,
             isPublic: isPublic,
             icon: icon
         };
     
-        // Store in Local Storage (simulating database storage)
-        let savedSets = JSON.parse(localStorage.getItem("flashcardSets")) || [];
-        savedSets.push(flashcardSet);
+        savedSets.push(newFlashcardSet);
         localStorage.setItem("flashcardSets", JSON.stringify(savedSets));
+        console.log("New flashcard set saved:", newFlashcardSet);
+    }
     
-        console.log("Flashcard set saved:", flashcardSet);  // Debugging check
     
-        // Redirect back to Created Sets Page
-        window.location.href = "../dashboard/created_sets.html";
-    };
     
     
 });
