@@ -45,8 +45,6 @@ document.addEventListener("DOMContentLoaded", () => {
     
 
 
-    
-
     // Function to create a new flashcard
     function createFlashcard(number) {
         const flashcard = document.createElement("div");
@@ -138,6 +136,29 @@ document.addEventListener("DOMContentLoaded", () => {
             if (!hasText) {
                 return; // Prevent navigation if all flashcards are empty
             }
+
+            let updatedTitle = document.querySelector(".set-title").value.trim();
+            let updatedClassCode = document.querySelector(".class-code").value.trim();
+
+            // ✅ Extract updated flashcards
+            let updatedFlashcards = [];
+            document.querySelectorAll(".flashcard").forEach((card) => {
+                let question = card.querySelector(".question-container textarea").value.trim();
+                let answer = card.querySelector(".answer-container textarea").value.trim();
+
+        
+
+            if (question || answer) {  // ✅ Ensure at least one field is filled
+                updatedFlashcards.push({ question, answer });
+            }
+        });
+
+            
+            //checks if no changes have been made if editing
+            if(editingaSet && editingSet.title == updatedTitle && editingSet.classCode == updatedClassCode && editingSet.flashcards == updatedFlashcards && editingSet.numCards == updatedFlashcards.length){
+                return;
+            }
+
 
             event.preventDefault();
             const destination = item.getAttribute("href"); // Get the target link
@@ -253,7 +274,7 @@ document.addEventListener("DOMContentLoaded", () => {
             editingSet.classCode = updatedClassCode;
             editingSet.flashcards = updatedFlashcards;
             editingSet.numCards = updatedFlashcards.length; // ✅ Update flashcard count
-            
+
             if (question || answer) {  // ✅ Ensure at least one field is filled
                 updatedFlashcards.push({ question, answer });
             }
@@ -282,7 +303,7 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log("Creating a new flashcard set");
             createNewFlashcardSet(setTitle, classCode, flashcards, isPublic, icon);
         }
-        debugger;
+
 
     
         window.location.href = "../dashboard/created_sets.html";
