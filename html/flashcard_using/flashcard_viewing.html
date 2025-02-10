@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" type="image/png" href="../../FliplyPNGs/favicon.ico" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flashcard Set - Fliply</title>
+    <link rel="stylesheet" href="../../css/set_creation/set_creator.css" />
+    <link
+      rel="stylesheet"
+      href="../../css/flashcard_using/flashcard_viewing.css"
+    />
+    <link rel="stylesheet" href="../../css/nav_bar.css" />
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="top-nav">
+      <a href="../dashboard/created_sets.html" class="nav-item back-button">
+        <img src="../../FliplyPNGs/back button.png" alt="Back Icon" />
+      </a>
+      <a href="../dashboard/created_sets.html" class="nav-item active">
+        <img src="../../FliplyPNGs/my sets icon.png" alt="Created Sets Icon" />
+        Created Sets
+      </a>
+      <a href="../dashboard/saved_sets.html" class="nav-item">
+        <img src="../../FliplyPNGs/saved sets icon.png" alt="Saved Sets Icon" />
+        Saved Sets
+      </a>
+      <a href="../dashboard/search_sets.html" class="nav-item">
+        <img
+          src="../../FliplyPNGs/search sets icon.png"
+          alt="Search Sets Icon"
+        />
+        Search Sets
+      </a>
+      <a href="../dashboard/profile.html" class="nav-item">
+        <img src="../../FliplyPNGs/your profile icon.png" alt="Profile Icon" />
+        Profile
+      </a>
+    </nav>
+
+    <!-- Set Title -->
+    <div class="set-header">
+      <div class="set-title-container">
+        <h1 class="set-title">CSE12 Midterm</h1>
+        <p class="class-code">CSE12</p>
+      </div>
+      <button class="edit-set-btn">
+        <img src="../../FliplyPNGs/edit icon.png" />
+        Edit Set
+      </button>
+    </div>
+
+    <!-- View Modes -->
+    <div class="view-mode-container">
+      <button class="view-mode active">View as Flashcards</button>
+      <button class="view-mode">View as Quiz</button>
+    </div>
+
+    <!-- Flashcard List -->
+    <div class="flashcard-container" id="flashcard-list">
+      <div class="flashcard">
+        <span class="card-number">1</span>
+        <div class="flashcard-content">
+          <div class="question-container">
+            <label>Question:</label>
+            <div class="question-text">
+              What is considered the official powerhouse of a cell?
+            </div>
+          </div>
+          <div class="answer-container">
+            <label>Answer:</label>
+            <div class="answer-text">The Mitochondria of course!</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flashcard">
+        <span class="card-number">2</span>
+        <div class="flashcard-content">
+          <div class="question-container">
+            <label>Question:</label>
+            <div class="question-text">
+              This is what happens when the text goes out of the box it expands
+              like this look blah blah blah blah blah blah blah blah blah blah
+              blah blah blah blah blah blah blah blah
+            </div>
+          </div>
+          <div class="answer-container">
+            <label>Answer:</label>
+            <div class="answer-text">
+              For the flashcard number the font size goes down by 8 when an
+              extra digit is added to fit it
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="../../js/flashcard_view.js"></script>
+</html>

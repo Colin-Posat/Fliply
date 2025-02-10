@@ -118,53 +118,62 @@ document.addEventListener("DOMContentLoaded", () => {
     const navItems = document.querySelectorAll(".nav-item"); // Select all nav links
 
     // Navigation Items Confirmation
-    navItems.forEach((item) => {
-        item.addEventListener("click", (event) => {
-            let hasText = false;
-            document.querySelectorAll(".flashcard").forEach((flashcard) => {
-                const questionText = flashcard.querySelector(".question-container textarea").value.trim();
-                const answerText = flashcard.querySelector(".answer-container textarea").value.trim();
-                if (questionText || answerText) {
-                    hasText = true;
-                }
-            });
-
-            if (flashcardContainer.children.length === 1 && !hasText) {
-                return;
+navItems.forEach((item) => {
+    item.addEventListener("click", (event) => {
+        let hasText = false;
+        document.querySelectorAll(".flashcard").forEach((flashcard) => {
+            const questionText = flashcard.querySelector(".question-container textarea").value.trim();
+            const answerText = flashcard.querySelector(".answer-container textarea").value.trim();
+            if (questionText || answerText) {
+                hasText = true;
             }
+        });
 
-            if (!hasText) {
-                return; // Prevent navigation if all flashcards are empty
-            }
+        if (flashcardContainer.children.length === 1 && !hasText) {
+            return;
+        }
 
-            let updatedTitle = document.querySelector(".set-title").value.trim();
-            let updatedClassCode = document.querySelector(".class-code").value.trim();
+        if (!hasText) {
+            return; // Prevent navigation if all flashcards are empty
+        }
 
-            // ✅ Extract updated flashcards
-            let updatedFlashcards = [];
-            document.querySelectorAll(".flashcard").forEach((card) => {
-                let question = card.querySelector(".question-container textarea").value.trim();
-                let answer = card.querySelector(".answer-container textarea").value.trim();
+        let updatedTitle = document.querySelector(".set-title").value.trim();
+        let updatedClassCode = document.querySelector(".class-code").value.trim();
 
-        
+        // ✅ Extract updated flashcards
+        let updatedFlashcards = [];
+        document.querySelectorAll(".flashcard").forEach((card) => {
+            let question = card.querySelector(".question-container textarea").value.trim();
+            let answer = card.querySelector(".answer-container textarea").value.trim();
 
             if (question || answer) {  // ✅ Ensure at least one field is filled
                 updatedFlashcards.push({ question, answer });
             }
         });
 
-            
-            //checks if no changes have been made if editing
-            if(editingaSet && editingSet.title == updatedTitle && editingSet.classCode == updatedClassCode && editingSet.flashcards == updatedFlashcards && editingSet.numCards == updatedFlashcards.length){
-                return;
-            }
+        // ✅ Function to check if two flashcard arrays are identical
+        function areFlashcardsEqual(arr1, arr2) {
+            if (arr1.length !== arr2.length) return false;
+            return arr1.every((flashcard, index) => 
+                flashcard.question === arr2[index].question &&
+                flashcard.answer === arr2[index].answer
+            );
+        }
 
+        // ✅ Check if no changes have been made when editing
+        if (editingSet &&
+            editingSet.title === updatedTitle &&
+            editingSet.classCode === updatedClassCode &&
+            areFlashcardsEqual(editingSet.flashcards, updatedFlashcards)
+        ) {
+            return; // No changes detected, allow navigation without confirmation
+        }
 
-            event.preventDefault();
-            const destination = item.getAttribute("href"); // Get the target link
-            showExitConfirmation(destination);
-        });
+        event.preventDefault();
+        const destination = item.getAttribute("href"); // Get the target link
+        showExitConfirmation(destination);
     });
+});
 
     function showExitConfirmation(destination) {
         // Remove any existing modal to prevent duplicates
