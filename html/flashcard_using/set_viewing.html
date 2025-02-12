@@ -6,10 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Flashcard Set - Fliply</title>
     <link rel="stylesheet" href="../../css/set_creation/set_creator.css" />
-    <link
-      rel="stylesheet"
-      href="../../css/flashcard_using/flashcard_viewing.css"
-    />
+    <link rel="stylesheet" href="../../css/flashcard_using/set_viewing.css" />
     <link rel="stylesheet" href="../../css/nav_bar.css" />
   </head>
   <body>
@@ -39,11 +36,11 @@
       </a>
     </nav>
 
-    <!-- Set Title -->
+    <!-- Set Title and Class Code -->
     <div class="set-header">
       <div class="set-title-container">
-        <h1 class="set-title">CSE12 Midterm</h1>
-        <p class="class-code">CSE12</p>
+        <h1 class="set-title"></h1>
+        <span class="class-code"></span>
       </div>
       <button class="edit-set-btn">
         <img src="../../FliplyPNGs/edit icon.png" />
@@ -80,22 +77,15 @@
         <div class="flashcard-content">
           <div class="question-container">
             <label>Question:</label>
-            <div class="question-text">
-              This is what happens when the text goes out of the box it expands
-              like this look blah blah blah blah blah blah blah blah blah blah
-              blah blah blah blah blah blah blah blah
-            </div>
+            <div class="question-text"></div>
           </div>
           <div class="answer-container">
             <label>Answer:</label>
-            <div class="answer-text">
-              For the flashcard number the font size goes down by 8 when an
-              extra digit is added to fit it
-            </div>
+            <div class="answer-text"></div>
           </div>
         </div>
       </div>
     </div>
   </body>
-  <script src="../../js/flashcard_view.js"></script>
+  <script type="module" src="../../js/set_viewing.js"></script>
 </html>

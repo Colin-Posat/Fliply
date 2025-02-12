@@ -16,14 +16,20 @@
       />
       <h1>Fliply</h1>
 
-      <form action="../dashboard/created_sets.html" method="GET">
-        <input type="email" placeholder="Email" required />
-        <input type="password" placeholder="Password" required />
+      <form id="login-form">
+        <input type="email" placeholder="Email" id="login-email" required />
+        <input
+          type="password"
+          placeholder="Password"
+          id="login-password"
+          required
+        />
         <a href="#" class="forgot-password">Forgot password?</a>
-        <button type="submit" class="login-btn">Login</button>
+        <button type="submit" class="login-btn" id="login-btn">Login</button>
       </form>
 
       <p>New user? <a href="signup.html">Create Account</a></p>
     </div>
   </body>
+  <script type="module" src="../../js/login/login.js" defer></script>
 </html>

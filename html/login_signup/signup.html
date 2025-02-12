@@ -17,11 +17,23 @@
 
       <!-- Redirects to details.html after submission -->
       <form action="details.html" method="GET">
-        <input type="email" placeholder="Enter Email" required />
-        <input type="text" placeholder="Create Username" required />
-        <input type="password" placeholder="Create Password" required />
-        <input type="password" placeholder="Confirm Password" required />
-        <button type="submit" class="signup-btn">Sign Up</button>
+        <input type="email" placeholder="Enter Email" id="email" required />
+        <input type="text" placeholder="Create Username" id="username" />
+        <input
+          type="password"
+          placeholder="Create Password"
+          id="password"
+          required
+        />
+        <input
+          type="password"
+          placeholder="Confirm Password"
+          id="confirm-password"
+          required
+        />
+        <button type="submit" class="signup-btn" id="submit-signup">
+          Sign Up
+        </button>
       </form>
 
       <img
@@ -31,4 +43,5 @@
       />
     </div>
   </body>
+  <script type="module" src="../../js/signup/register.js"></script>
 </html>

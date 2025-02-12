@@ -32,17 +32,24 @@ body {
     margin-top: 30px;
 }
 
-.set-title {
-    margin-top: 40px;
-    font-size: clamp(24px, 5vw, 40px);
-    font-weight: bold;
-    border: none;
-}
-
+/* Title + Class Code Container */
 .set-title-container {
     display: flex;
-    align-items: center; /* Ensures both elements are aligned in the middle */
-    gap: 20px; /* Space between title and class code */
+    align-items: center;
+    max-width: 100%;
+    flex-wrap: nowrap;
+    margin-top: 30px;
+}
+
+/* Title Styling */
+.set-title {
+    font-size: clamp(15px, 5vw, 25px);
+    font-weight: bold;
+    border: none;
+    white-space: nowrap; /* ✅ Keeps title on a single line */
+    overflow: visible; /* ✅ Allows it to expand naturally */
+    text-overflow: unset; /* ✅ Prevents ellipsis truncation */
+    min-width: fit-content; /* ✅ Expands to fit content */
 }
 
 /* Class Code Styling */
@@ -50,15 +57,25 @@ body {
     font-size: 20px;
     font-weight: normal;
     color: var(--dark-gray);
-    white-space: nowrap; /* Prevents line break */
+    white-space: nowrap; /* ✅ Keeps class code on a single line */
+    margin-left: 15px; /* ✅ Provides default spacing */
+    flex-shrink: 0; /* ✅ Ensures it doesn't shrink */
+    position: relative;
+    left: 0;
+    transition: transform 0.2s ease-in-out; /* ✅ Smooth transition */
     text-align: center;
-    line-height: 1; /* Ensures vertical consistency */
-    margin-top: 40px; /* Fine-tune alignment */
 }
+
+
+
+
+
+
 /* Edit Button */
 .edit-set-btn {
-    display: absolute;
-    align-items: center;
+    display: flex;
+    align-items: center; /* Vertically centers content */
+    justify-content: center; /* Horizontally centers content */
     gap: 8px;
     padding: 10px 15px;
     font-size: 25px;
@@ -67,10 +84,21 @@ body {
     border-radius: 8px;
     cursor: pointer;
     border: 2px solid var(--black);
-    margin-top: 30px;
+    margin-top: 43px;
     height: fit-content;
-    margin-left: 30px;
+    margin-bottom: 20px;
+}
 
+@media (max-width: 800px) {
+    .set-header {
+        flex-direction: column; /* Stacks items when screen is narrow */
+        align-items: flex-start; /* Aligns items to the left */
+    }
+
+    .edit-set-btn {
+        width: 100%; /* Makes button full width when wrapped */
+        justify-content: center; /* Centers text */
+    }
 }
 
 label {
@@ -80,8 +108,9 @@ label {
 }
 
 .edit-set-btn img {
-    width: 18px;
-    height: 18px;
+    width: 26px;
+    height: 26px;
+    display: block; /* Prevents extra space around image */
 }
 
 /* View Mode Buttons */

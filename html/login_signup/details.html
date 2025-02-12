@@ -11,10 +11,21 @@
     <div class="details-container">
       <h1>Just a Few More Details!</h1>
 
-      <form action="../dashboard/created_sets.html" method="GET">
-        <input type="text" placeholder="Select Your University" required />
-        <input type="text" placeholder="Enter Your Field of Study (Optional)" />
-        <button type="submit" class="details-btn">Done</button>
+      <form id="details-form">
+        <input
+          type="text"
+          placeholder="Select Your University"
+          id="university"
+          required
+        />
+        <input
+          type="text"
+          placeholder="Enter Your Field of Study (Optional)"
+          id="fieldOfStudy"
+        />
+        <button type="submit" class="details-btn" id="submit-details">
+          Done
+        </button>
       </form>
 
       <img
@@ -24,4 +35,5 @@
       />
     </div>
   </body>
+  <script type="module" src="../../js/signup/details.js" defer></script>
 </html>

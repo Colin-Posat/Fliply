@@ -44,19 +44,20 @@
           class="profile-pic"
         />
         <div class="profile-info">
-          <h2>
-            JohnDoe124 <span class="likes">❤️ <strong>502</strong></span>
+          <h2 id="profile-username">
+              Loading... <span class="likes">❤️ <strong id="profile-likes">0</strong></span>
           </h2>
-          <p>University of California Santa Cruz</p>
-          <p>B.S. Computer Engineering</p>
-        </div>
+          <p id="profile-university">Loading...</p>
+          <p id="profile-fieldOfStudy">Loading...</p>
       </div>
+      
       <div class="profile-buttons">
         <button class="edit-btn">Edit Profile</button>
-        <button class="signout-btn" onclick="location.href='../../index.html'">
+        <button class="signout-btn" id="signout-btn">
           Sign Out
         </button>
       </div>
     </div>
   </body>
+  <script type="module" src="../../js/profile.js" defer></script>
 </html>

@@ -49,6 +49,9 @@ body {
 }
 
 
+#create-set-helper {
+    display: none; /* Initially hidden */
+}
 
 /* Create Set Button - Always Below Nav Bar, Fixed When Scrolling */
 .create-set-btn {
