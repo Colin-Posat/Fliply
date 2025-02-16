@@ -5,16 +5,15 @@
     font-style: normal;
 }
 
-
 @font-face {
     font-family: 'WorkSans';
-    src: url('../static/WorkSans-Bold.ttf') format('truetype');
+    src: url('../../static/WorkSans-Bold.ttf') format('truetype');
     font-weight: bold;
 }
 
 @font-face {
     font-family: 'WorkSans';
-    src: url('../static/WorkSans-Italic.ttf') format('truetype');
+    src: url('../../static/WorkSans-Italic.ttf') format('truetype');
     font-style: italic;
 }
 

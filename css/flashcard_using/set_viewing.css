@@ -122,7 +122,19 @@ label {
     width: 99%;
 }
 
-.view-mode {
+.view-mode-quiz {
+    padding: 12px 20px;
+    font-size: 25px;
+    font-weight: bold;
+    background-color: var(--light-blue);
+    border-radius: 8px;
+    cursor: pointer;
+    border: 2px solid var(--black);
+    width: 99%;
+    
+}
+
+.view-mode-flash {
     padding: 12px 20px;
     font-size: 25px;
     font-weight: bold;
@@ -213,3 +225,4 @@ label {
     overflow: auto; /* Enable scrolling if text overflows */
     word-break: break-word; /* Ensure long words wrap properly */
 }
+

@@ -76,6 +76,10 @@ document.addEventListener("DOMContentLoaded", () => {
         return flashcard;
     }
 
+    document.querySelector(".view-mode-flash").addEventListener("click", () => {
+        window.location.href = "flashcard_view.html";
+    });
+
     // ✅ Function to edit a set (Redirect to edit page)
     async function editSet(setId) {
         const user = auth.currentUser;

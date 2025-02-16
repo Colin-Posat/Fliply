@@ -1,0 +1,229 @@
+@font-face {
+    font-family: 'WorkSans';
+    src: url('../../static/WorkSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'WorkSans';
+    src: url('../../static/WorkSans-Bold.ttf') format('truetype');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'WorkSans';
+    src: url('../../static/WorkSans-Italic.ttf') format('truetype');
+    font-style: italic;
+}
+
+/* Define Color Palette */
+:root {
+    --white: #ffffff;
+    --black: #000000;
+    --dark-blue: #004a74;
+    --light-blue: #e3f3ff;
+    --medium-blue: #00659f;
+    --red: #ff3131;
+    --gray: #bdbdbd;
+}
+
+/* Reset Default Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'WorkSans', sans-serif;
+}
+
+/* Full Page Layout */
+body {
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 70px; /* Prevents overlap with fixed nav bar */
+    min-height: 100vh;
+}
+
+/* Ensure Navigation Bar Stays Fixed */
+.top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--dark-blue);
+    color: var(--white);
+    padding: 10px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 3px solid var(--black);
+}
+
+/* Back Button - Ensures Positioning at Top Left */
+.back-button {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 15px;
+    background-color: var(--medium-blue);
+    border-radius: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--white) !important;
+    font-weight: normal !important;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+/* Adjust Back Button Icon */
+.back-button img {
+    width: 24px;
+    height: 24px;
+}
+
+.flashcard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+    width: 100%;
+    margin-top: 10px;
+    perspective: 1000px;
+}
+
+/* Flashcard structure */
+.flashcard {
+    width: 60%;
+    height: min(50vh, 320px);
+    min-height: fit-content;
+    padding: 20px;
+    background: var(--dark-blue);
+    color: var(--white);
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transform-style: preserve-3d;
+}
+
+/* Flip when class is added */
+.flashcard.flipped {
+    transform: rotateY(180deg);
+}
+
+/* Navigation Buttons - Dynamically Adjusted Spacing */
+.nav-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: clamp(10px, 4vh, 18px); /* Keeps margin small on large screens */
+    width: 100%;
+}
+
+/* Navigation Buttons Styling */
+.nav-buttons button {
+    padding: 8px 20px;
+    border: 1px solid #000000;
+    background: var(--medium-blue);
+    color: var(--white);
+    font-size: 30px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out;
+}
+
+.nav-buttons button:hover {
+    background: var(--light-blue);
+}
+
+
+/* Card Counter - Centered */
+#card-counter {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0 10px;
+    color: var(--black);
+}
+
+/* Shuffle Button - Centered & Brought Closer */
+.shuffle-btn {
+    display: block;
+    margin: 15px auto; /* Reduced margin */
+    padding: 8px 15px;
+    background: var(--light-blue);
+    color: var(--black);
+    border: 1px solid #000000;
+    cursor: pointer;
+    font-size: 30px;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out;
+}
+
+.shuffle-btn:hover {
+    background: #c70039;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .flashcard {
+        width: 80%;
+        height: 180px;
+        font-size: 18px;
+    }
+
+    .back-button {
+        left: 5px;
+        top: 5px;
+        padding: 6px 10px;
+    }
+
+    .nav-buttons {
+        gap: 5px; /* Ensures buttons are closer on small screens */
+    }
+
+    .nav-buttons button {
+        font-size: 14px;
+        padding: 6px 15px;
+    }
+
+    .shuffle-btn {
+        font-size: 14px;
+        padding: 6px 15px;
+    }
+
+    #card-counter{
+        font-size: 14px;
+    }
+
+    @media (max-height: 500px) {
+        .flashcard {
+            height: min(30vh, 200px); /* Adjusts for ultra-small height */
+            font-size: 20px;
+            padding: 10px;
+        }
+    
+        .nav-buttons {
+            gap: 5px; /* Reduce button spacing */
+        }
+    
+        .nav-buttons button, .shuffle-btn  {
+            font-size: 14px;
+            padding: 5px 10px;
+        }
+        
+       
+
+        
+    }
+}

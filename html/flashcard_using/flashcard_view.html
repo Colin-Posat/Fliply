@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Flashcard Viewer</title>
+    <link
+      rel="stylesheet"
+      href="../../css/flashcard_using/flashcard_view.css"
+    />
+    <link rel="stylesheet" href="../../css/nav_bar.css" />
+    <script defer src="../../js/flashcard_view.js"></script>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="top-nav">
+      <a href="../dashboard/created_sets.html" class="nav-item back-button">
+        <img src="../../FliplyPNGs/back button.png" alt="Back Icon" />
+      </a>
+      <a href="../dashboard/created_sets.html" class="nav-item active">
+        <img src="../../FliplyPNGs/my sets icon.png" alt="Created Sets Icon" />
+        Created Sets
+      </a>
+      <a href="../dashboard/saved_sets.html" class="nav-item">
+        <img src="../../FliplyPNGs/saved sets icon.png" alt="Saved Sets Icon" />
+        Saved Sets
+      </a>
+      <a href="../dashboard/search_sets.html" class="nav-item">
+        <img
+          src="../../FliplyPNGs/search sets icon.png"
+          alt="Search Sets Icon"
+        />
+        Search Sets
+      </a>
+      <a href="../dashboard/profile.html" class="nav-item">
+        <img src="../../FliplyPNGs/your profile icon.png" alt="Profile Icon" />
+        Profile
+      </a>
+    </nav>
+    <!-- Flashcard Display -->
+    <div class="flashcard-container">
+      <div id="flashcard" class="flashcard" onclick="flipCard()">
+        <div class="flashcard-content">
+          <p id="flashcard-text">Loading...</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <div class="nav-buttons">
+      <button onclick="prevCard()">Prev</button>
+      <span id="card-counter">1 / 1</span>
+      <button onclick="nextCard()">Next</button>
+    </div>
+
+    <!-- Shuffle Button -->
+    <button onclick="shuffleCards()" class="shuffle-btn">Shuffle</button>
+  </body>
+</html>
