@@ -14,6 +14,15 @@ if (shuffledCards.length > 0) {
     displayCard();
 }
 
+// Back button - Save state and return
+document.querySelector(".back-button").addEventListener("click", function (event) {
+    event.preventDefault();
+    let viewingSet = JSON.parse(localStorage.getItem("viewingFlashcardSet")) || {};
+    viewingSet.flashcards = flashcards;
+    localStorage.setItem("viewingFlashcardSet", JSON.stringify(viewingSet));
+    window.location.href = "../flashcard_using/set_viewing.html";
+});
+
 // Function to display current flashcard
 function displayCard() {
     if (shuffledCards.length === 0) {
@@ -21,37 +30,58 @@ function displayCard() {
         return;
     }
     let card = shuffledCards[currentIndex];
-    flashcardText.textContent = showingQuestion ? card.question : card.answer;
-    cardCounter.textContent = `${currentIndex + 1} / ${shuffledCards.length}`;
+
+    // Smoothly update content after animation
+    setTimeout(() => {
+        flashcardText.textContent = showingQuestion ? card.question : card.answer;
+        cardCounter.textContent = `${currentIndex + 1} / ${shuffledCards.length}`;
+        flashcard.classList.remove("slide-left", "slide-right");
+    }, 200);
 }
 
-// Flip flashcard (toggles question ↔ answer)
 function flipCard() {
-    showingQuestion = !showingQuestion;
-    displayCard();
+    flashcard.classList.add("flipping"); // Hide text
+
+    setTimeout(() => {
+        showingQuestion = !showingQuestion;
+        displayCard(); // Change text while hidden
+    }, 100); // Hide text slightly before flip
+
+    setTimeout(() => {
+        flashcard.classList.toggle("flipped"); // Apply flip animation
+    }, 150); // Start flipping after text disappears
+
+    setTimeout(() => {
+        flashcard.classList.remove("flipping"); // Show text again
+    }, 300); // Reveal text after flip completes
 }
 
 
-
-// Next card
+// Next card with sliding effect
 function nextCard() {
     if (currentIndex < shuffledCards.length - 1) {
-        currentIndex++;
-        showingQuestion = true; // Reset to question
-        displayCard();
+        flashcard.classList.add("slide-left");
+        setTimeout(() => {
+            currentIndex++;
+            showingQuestion = true; // Reset to question
+            displayCard();
+        }, 300);
     }
 }
 
-// Previous card
+// Previous card with sliding effect
 function prevCard() {
     if (currentIndex > 0) {
-        currentIndex--;
-        showingQuestion = true; // Reset to question
-        displayCard();
+        flashcard.classList.add("slide-right");
+        setTimeout(() => {
+            currentIndex--;
+            showingQuestion = true; // Reset to question
+            displayCard();
+        }, 300);
     }
 }
 
-// Shuffle flashcards
+// Shuffle flashcards (like Quizlet's shuffle feature)
 function shuffleCards() {
     shuffledCards = [...flashcards].sort(() => Math.random() - 0.5);
     currentIndex = 0;

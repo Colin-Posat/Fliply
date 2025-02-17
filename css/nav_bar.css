@@ -4,7 +4,7 @@
     background-color: var(--dark-blue);
     color: var(--white);
     padding: 10px;
-    font-size: clamp(14px, 1.5vw, 20px);
+    font-size: 20px;
     position: fixed;
     top: 0;
     left: 0;
@@ -63,7 +63,7 @@
     font-weight: normal !important;
     white-space: nowrap; /* Prevents text from breaking */
     flex-shrink: 0; /* Ensures buttons stay close together */
-    transition: 0.3s;
+
 }
 
 /* Nav Icons */
@@ -101,5 +101,7 @@
         width: 10px; /* Make icons smaller */
         height: 10px;
     }
+
+
 }
 

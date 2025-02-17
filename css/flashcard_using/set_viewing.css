@@ -86,7 +86,7 @@ body {
     border: 2px solid var(--black);
     margin-top: 43px;
     height: fit-content;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 @media (max-width: 800px) {
@@ -113,12 +113,13 @@ label {
     display: block; /* Prevents extra space around image */
 }
 
+
 /* View Mode Buttons */
 .view-mode-container {
     display: flex;
     justify-content: center;
-    gap: 20px;
-    margin: 20px 0;
+    gap: 15px;
+    margin-top: 15px;
     width: 99%;
 }
 

@@ -98,8 +98,8 @@ body {
 
 /* Flashcard structure */
 .flashcard {
-    width: 60%;
-    height: min(50vh, 320px);
+    width: 80%;
+    height: min(50vh, 360px);
     min-height: fit-content;
     padding: 20px;
     background: var(--dark-blue);
@@ -111,15 +111,50 @@ body {
     border-radius: 10px;
     cursor: pointer;
     transition: transform 0.3s ease-in-out;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     text-align: center;
     transform-style: preserve-3d;
+    position: relative;
+
+    /* Prevent text selection */
+    user-select: none; 
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
 }
 
-/* Flip when class is added */
+/* Flip animation */
 .flashcard.flipped {
     transform: rotateY(180deg);
 }
+
+/* Flashcard content styling */
+.flashcard-content {
+    transition: opacity 0.5s ease-in-out;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backface-visibility: hidden; /* Prevents text from mirroring */
+}
+
+/* Hide text during flipping */
+.flashcard.flipping .flashcard-content {
+    opacity: 0;
+}
+
+/* Show back content properly without mirroring */
+.flashcard.flipped .flashcard-content {
+    opacity: 1;
+    transform: rotateY(180deg);
+}
+
+
+
+
+
 
 /* Navigation Buttons - Dynamically Adjusted Spacing */
 .nav-buttons {
@@ -137,7 +172,7 @@ body {
     border: 1px solid #000000;
     background: var(--medium-blue);
     color: var(--white);
-    font-size: 30px;
+    font-size: 25px;
     cursor: pointer;
     border-radius: 5px;
     transition: background 0.3s ease-in-out;
@@ -145,12 +180,13 @@ body {
 
 .nav-buttons button:hover {
     background: var(--light-blue);
+
 }
 
 
 /* Card Counter - Centered */
 #card-counter {
-    font-size: 30px;
+    font-size: 25px;
     font-weight: bold;
     margin: 0 10px;
     color: var(--black);
@@ -165,7 +201,7 @@ body {
     color: var(--black);
     border: 1px solid #000000;
     cursor: pointer;
-    font-size: 30px;
+    font-size: 25px;
     border-radius: 5px;
     transition: background 0.3s ease-in-out;
 }
