@@ -17,7 +17,76 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
 
+// Class codes storage
+let classCodes = [];
+
+// Fetch class codes from a CSV file
+async function fetchClassCodes() {
+    try {
+        const response = await fetch("../../class_code_data/extracted_class_codes.csv"); 
+        const text = await response.text();
+        classCodes = text.split("\n").map(code => code.trim()).filter(code => code.length > 0);
+        console.log("✅ Loaded class codes:", classCodes);
+    } catch (error) {
+        console.error("❌ Error loading class codes:", error);
+    }
+}
+
+function setupAutocomplete() {
+    const classCodeInput = document.querySelector(".class-code");
+    const autocompleteList = document.createElement("ul");
+    autocompleteList.classList.add("autocomplete-list");
+    
+    // Append dropdown inside the same container to ensure proper positioning
+    classCodeInput.parentNode.appendChild(autocompleteList);
+
+    classCodeInput.addEventListener("input", () => {
+        const value = classCodeInput.value.trim().toUpperCase();
+        autocompleteList.innerHTML = "";
+
+        if (!value) return;
+
+        // Filter class codes based on input
+        const matches = classCodes.filter(code => code.startsWith(value)).slice(0, 5); // Show top 5 matches
+        matches.forEach(match => {
+            const item = document.createElement("li");
+            item.textContent = match;
+            item.classList.add("autocomplete-item");
+            item.addEventListener("click", () => {
+                classCodeInput.value = match;
+                autocompleteList.innerHTML = "";
+            });
+            autocompleteList.appendChild(item);
+        });
+    });
+
+    // Hide suggestions when clicking outside
+    document.addEventListener("click", (event) => {
+        if (!classCodeInput.contains(event.target) && !autocompleteList.contains(event.target)) {
+            autocompleteList.innerHTML = "";
+        }
+    });
+
+    // Validate input on blur
+    classCodeInput.addEventListener("blur", () => {
+        setTimeout(() => {
+            if (!classCodes.includes(classCodeInput.value.trim().toUpperCase())) {
+                alert("❌ Invalid class code! Please select from the list.");
+                classCodeInput.value = ""; // Clear invalid input
+            }
+        }, 200); // Delay to allow click selection
+    });
+}
+
+
+// Load class codes and set up autocomplete
+document.addEventListener("DOMContentLoaded", async () => {
+    await fetchClassCodes();
+    setupAutocomplete();
+});
+
 document.addEventListener("DOMContentLoaded", () => {
+    
     const flashcardContainer = document.getElementById("flashcard-list");
     const addCardBtn = document.getElementById("add-card-btn");
     const setTitleInput = document.querySelector(".set-title");

@@ -17,6 +17,13 @@
     font-style: italic;
 }
 
+.class-code-view {
+    padding: 12px 30px;
+    font-size: 16px;
+    border: 2px solid var(--dark-blue);
+    border-radius: 8px;
+    width: fit-content;
+}
 
 /* Override Background */
 body {
@@ -53,7 +60,7 @@ body {
 }
 
 /* Class Code Styling */
-.class-code {
+.class-code-view {
     font-size: 20px;
     font-weight: normal;
     color: var(--dark-gray);

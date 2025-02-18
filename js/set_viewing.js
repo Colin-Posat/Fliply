@@ -20,7 +20,7 @@ const auth = getAuth(app);
 document.addEventListener("DOMContentLoaded", () => {
     const flashcardContainer = document.getElementById("flashcard-list");
     const setTitleElement = document.querySelector(".set-title");
-    const classCodeElement = document.querySelector(".class-code");
+    const classCodeElement = document.querySelector(".class-code-view");
     const editSetBtn = document.querySelector(".edit-set-btn");
 
     // ✅ Retrieve the selected set from localStorage
