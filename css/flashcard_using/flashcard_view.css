@@ -169,17 +169,19 @@ body {
 /* Navigation Buttons Styling */
 .nav-buttons button {
     padding: 8px 20px;
-    border: 1px solid #000000;
     background: var(--medium-blue);
     color: var(--white);
     font-size: 25px;
     cursor: pointer;
     border-radius: 5px;
-    transition: background 0.3s ease-in-out;
+    transition: 0.3s;
+    border: none;
 }
 
 .nav-buttons button:hover {
     background: var(--light-blue);
+    transform: scale(1.05);
+
 
 }
 
@@ -199,15 +201,17 @@ body {
     padding: 8px 15px;
     background: var(--light-blue);
     color: var(--black);
-    border: 1px solid #000000;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+    border: none;
     cursor: pointer;
     font-size: 25px;
     border-radius: 5px;
-    transition: background 0.3s ease-in-out;
+    transition: 0.3s;
 }
 
 .shuffle-btn:hover {
-    background: #c70039;
+    transform: scale(1.04);
+
 }
 
 /* Responsive Adjustments */

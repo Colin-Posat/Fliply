@@ -69,7 +69,7 @@ esponsive Height */
     padding: 50px; /* Space around content */
     background-color: var(--light-blue);
     border-radius: 20px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     text-align: center;
     position: absolute; /* Center it absolutely */
     top: 50%;
@@ -144,6 +144,7 @@ esponsive Height */
 
 .edit-btn:hover, .signout-btn:hover {
     background-color: var(--medium-blue);
+    transform: scale(1.01);
 }
 
 /* Responsive adjustments for smaller heights */

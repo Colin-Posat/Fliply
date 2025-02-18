@@ -26,7 +26,6 @@
     align-items: center;
     gap: 6px;
     padding: 8px 15px;
-    background-color: var(--medium-blue);
     border-radius: 20px;
     cursor: pointer;
     text-decoration: none;
@@ -35,11 +34,7 @@
     flex-shrink: 0; /* Prevents it from resizing */
 }
 
-/* Adjust Back Button Icon */
-.back-button img {
-    width: 24px;
-    height: 24px;
-}
+
 
 /* Navigation Items */
 .nav-items {
@@ -55,7 +50,7 @@
     align-items: center;
     gap: 6px;
     padding: 8px 15px;
-    background-color: var(--medium-blue);
+ 
     border-radius: 20px;
     cursor: pointer;
     text-decoration: none;
@@ -63,6 +58,8 @@
     font-weight: normal !important;
     white-space: nowrap; /* Prevents text from breaking */
     flex-shrink: 0; /* Ensures buttons stay close together */
+    transition: 0.3s ease-in-out;
+    
 
 }
 
@@ -75,12 +72,14 @@
 .top-nav .nav-item.active {
     pointer-events: none;
     font-weight: 700 !important;
+    font-size: 22px;
 }
 
 
 /* Hover Effect */
 .nav-item:hover {
-    background-color: var(--light-blue);
+
+    transform: scale(1.07);
 }
 
 

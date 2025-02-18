@@ -74,7 +74,7 @@ body {
 .set-title {
     padding: 12px;
     font-size: 16px;
-    border: 2px solid var(--dark-blue);
+    border: 1px solid var(--dark-blue);
     border-radius: 8px;
     min-width: 283px;
     max-width: 400px;
@@ -92,7 +92,7 @@ body {
 .class-code {
     padding: 12px;
     font-size: 16px;
-    border: 2px solid var(--dark-blue);
+    border: 1px solid var(--dark-blue);
     border-radius: 8px;
     width: 100%;
 }
@@ -153,14 +153,17 @@ body {
     min-width: 120px;
     max-width: 300px;
     text-align: center;
-    border: 2px solid #000000;
+
+    transition: .3s;
+
 }
 
 /* Hover Effects */
 .save-btn:hover,
 .publish-btn:hover {
-    background-color: var(--light-blue);
-    color: #000000;
+    background-color: var(--medium-blue);
+    transform: scale(1.03); /* Slightly increase size */
+
 }
 
 /* AI Generate Container */
@@ -179,7 +182,6 @@ body {
     font-weight: bold;
     background-color: var(--light-blue);
     color: var(--black);
-    border: 2px solid #000000;
     border-radius: 8px;
     cursor: pointer;
     width: 100%;
@@ -188,11 +190,17 @@ body {
     margin-left: 10px;
     text-align: center;
     justify-content: center;
+    transition: 0.3s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    border: none;
+
+
 }
 
 .ai-generate-btn:hover {
-    background-color: var(--light-gray);
-    transition: 0.3s;
+
+    
+    transform: scale(1.03); /* Slightly increase size */
 }
 
 .ai-icon {
@@ -220,10 +228,11 @@ body {
     justify-content: space-between;
     gap: 10px;
     position: relative;
-    border: 2px solid #000000;
+
     height: 220px;
     margin-bottom: 15px;
     margin-top: 15px;
+    border: none;
 }
 
 /* Card Number */
@@ -292,7 +301,7 @@ textarea {
     font-size: 18px;
     font-weight: bold;
     background-color: var(--light-blue);
-    border: 2px solid #000000;
+
     color: var(--black);
     border-radius: 8px;
     cursor: pointer;
@@ -300,11 +309,15 @@ textarea {
     text-align: center;
     display: block;
     margin: 20px auto;
+    transition: .3s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    border: none;
 }
 
 .add-card-btn:hover {
-    background-color: var(--light-gray);
-    transition: 0.3s;
+        
+    transform: scale(1.03); /* Slightly increase size */
+    
 }
 
 /* Hide autocomplete list when empty */
@@ -318,7 +331,6 @@ textarea {
     top: 10px; /* Distance from the top */
     left: 10px; /* Distance from the left */
     padding: 10px 15px;
-    background-color: var(--medium-blue);
     border-radius: 20px;
     cursor: pointer;
     text-decoration: none;
@@ -330,15 +342,15 @@ textarea {
     z-index: 1001; /* Ensure it stays on top of other elements */
 }
 
-/* Ensure Back Button Icon Adjusts */
 .back-button img {
-    width: 24px;
-    height: 24px;
+    width: 30px !important; /* Increase size */
+    height: 30px !important; /* Increase size */
 }
+
 
 /* Hover Effect */
 .back-button:hover {
-    background-color: var(--light-blue);
+    transform: scale(1.10)!important;
 }
 
 /* Responsive Adjustments */

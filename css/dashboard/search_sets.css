@@ -73,7 +73,7 @@ body {
 .search-bar {
     width: 100%;
     padding: 12px;
-    border: 2px solid var(--dark-blue);
+    border: 1px solid var(--dark-blue);
     border-radius: 8px;
     font-size: 18px;
     outline: none;
@@ -108,6 +108,7 @@ body {
 /* Hover Effect */
 .search-btn:hover {
     background-color: var(--medium-blue);
+    transform: scale(1.01);
 }
 
 /* Responsive Adjustments */
