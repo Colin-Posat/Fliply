@@ -35,11 +35,24 @@
     <!-- Search Container -->
     <div class="search-container">
       <h2>Find Flashcards for Your Class!</h2>
-      <input type="text" class="search-bar" placeholder="Enter Class Code" />
+
+      <div class="search-bar-container">
+        <input
+          type="text"
+          class="search-bar"
+          id="class-code-input"
+          placeholder="Enter Class Code"
+        />
+        <ul class="autocomplete-list"></ul>
+        <!-- Autocomplete dropdown -->
+      </div>
+
       <button class="search-btn">
         <img src="../../FliplyPNGs/search sets icon.png" alt="Search Icon" />
         Find Flashcards
       </button>
     </div>
+
+    <script type="module" src="../../js/dashboard/search_sets.js"></script>
   </body>
 </html>
