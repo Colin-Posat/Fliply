@@ -1,50 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="icon" type="image/png" href="/FliplyPNGs/fliply_logo.png" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fliply - AI Flashcards</title>
-    <link rel="stylesheet" href="../../css/css_login_signup/index.css" />
+    <link rel="stylesheet" href="css/css_login_signup/index.css" />
+    <script defer src="index.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Lucide Icons -->
   </head>
   <body>
-    <header class="top-bar">
-      <span class="contact">Contact Us</span>
+    <!-- HEADER -->
+    <header class="header">
+      <a href="#" class="logo">
+        <img
+          src="../../FliplyPNGs/fliply_logo.png"
+          alt="Fliply Logo"
+          class="logo-img"
+        />
+        <span class="nav-title">Fliply</span>
+      </a>
+      <nav class="nav">
+        <a class="about" href="#">Contact Us</a>
+        <a class="login" href="html/login_signup/login.html">Sign In</a>
+      </nav>
     </header>
 
+    <canvas id="particles"></canvas>
+
+    <!-- HERO SECTION -->
     <main>
-      <div class="content">
-        <div class="logo-container">
-          <h1>Fliply</h1>
-          <img
-            src="../../FliplyPNGs/fliply_logo.png"
-            alt="Fliply Logo"
-            class="logo"
-          />
-        </div>
-        <p class="subtitle">
-          The <strong>FREE</strong> AI-powered flashcard generator and sharing
-          platform that will
-          <span class="save-grade"><a href="#">save your grade</a></span>
+      <section class="hero">
+        <h1>Create, Share, and Study Smarter with Fliply</h1>
+        <p>
+          Create flashcards effortlessly with AI and discover flashcards from
+          your college classes.
         </p>
-        <div class="buttons">
-          <button
-            class="login"
-            onclick="window.location.href='/html/login_signup/login.html';"
-          >
-            Login
-          </button>
+        <button
+          onclick="location.href='html/login_signup/signup.html'"
+          class="btn"
+        >
+          <span class="btn-text">Get Started</span>
+        </button>
+      </section>
 
-          <span class="or">Or</span>
-
-          <button
-            class="signup"
-            onclick="window.location.href='/html/login_signup/signup.html';"
-          >
-            Sign Up
-          </button>
+      <!-- FEATURES SECTION -->
+      <section class="features">
+        <div class="card">
+          <i data-lucide="brain"></i>
+          <h3>AI-Powered Creation</h3>
+          <p>
+            Simply upload your notes and let our AI transform them into
+            comprehensive flashcard sets.
+          </p>
         </div>
-      </div>
+        <div class="card">
+          <i data-lucide="share-2"></i>
+          <h3>Share with Peers</h3>
+          <p>
+            Post your flashcard sets and help others learn. Collaborate with
+            classmates.
+          </p>
+        </div>
+        <div class="card">
+          <i data-lucide="search"></i>
+          <h3>Discover Class Sets</h3>
+          <p>
+            Browse flashcard sets created and shared by students in your college
+            classes.
+          </p>
+        </div>
+      </section>
     </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>© 2024 Fliply. All rights reserved.</p>
+      <nav>
+        <a href="#">Terms of Service</a>
+        <a href="#">Privacy</a>
+      </nav>
+    </footer>
   </body>
 </html>

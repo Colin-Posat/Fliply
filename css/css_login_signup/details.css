@@ -52,7 +52,7 @@ body {
 /* Details Container */
 .details-container {
     background: var(--white);
-    padding: 40px 50px; /* Matches login & signup pages */
+    padding: 40px 50px;
     border-radius: 20px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     text-align: center;
@@ -76,11 +76,11 @@ input {
     width: 100%;
     padding: 15px;
     margin: 12px 0;
-    margin-top: 20px;
     border: 2px solid var(--dark-blue);
     border-radius: 8px;
     font-size: 18px;
     outline: none;
+    position: relative;
 }
 
 /* Done Button */
@@ -108,7 +108,66 @@ input {
     margin-top: auto;
 }
 
-/* New Stage: Logo still visible, everything smaller */
+/* University Autocomplete Dropdown */
+.university-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 450px;
+}
+
+/* Dropdown menu */
+#university-dropdown {
+    position: absolute;
+    top: calc(100% - 9px); /* 👈 Closer to input */
+    left: 0;
+    width: 100%;
+    background: var(--white);
+    border: 2px solid var(--dark-blue);
+    border-top: none;
+    max-height: 180px; /* 👈 Increased height for more results */
+    overflow-y: auto;
+    z-index: 1000;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    display: none; /* Hidden by default */
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out, transform 0.1s ease-in-out;
+    transform: translateY(-2px); /* 👈 Subtle slide-in effect */
+}
+/* Show dropdown when active */
+#university-dropdown.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Dropdown Items */
+#university-dropdown li {
+    padding: 12px;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+    font-size: 16px;
+    background-color: var(--white);
+    text-align: left;
+    transition: background 0.2s;
+}
+
+/* Hover effect for autocomplete items */
+#university-dropdown li:hover {
+    background-color: var(--light-blue);
+}
+
+/* Ensure dropdown disappears when empty */
+#university-dropdown:empty {
+    display: none;
+}
+
+
+
+/* Responsive Adjustments */
 @media (max-height: 870px) {
     .details-container {
         padding: 25px 35px;
@@ -134,79 +193,10 @@ input {
     }
 }
 
-@media (max-height: 770px) {
-    .details-container {
-        padding: 20px 30px;
-        max-height: 90vh;
-    }
-
-    h1 {
-        font-size: clamp(30px, 4vw, 80px);
-    }
-
-    input {
-        padding: 10px;
-        font-size: 14px;
-    }
-
-    .details-btn {
-        padding: 12px;
-        font-size: 16px;
-    }
-
-    .logo {
-        width: clamp(140px, 18vw, 240px);
-    }
-}
-
-/* At 450px, logo disappears and scrolling enabled */
 @media (max-height: 690px) {
     .details-container {
-        padding: 15px 20px;
         max-height: 75vh;
         overflow: scroll;
-        height: 60vh;
-    }
-
-    h1 {
-        font-size: clamp(24px, 3.5vw, 60px);
-    }
-
-    input {
-        padding: 8px;
-        font-size: 12px;
-    }
-
-    .details-btn {
-        padding: 10px;
-        font-size: 14px;
-    }
-
-    .logo {
-        display: none;
-    }
-}
-
-/* At 350px, even smaller and scroll enabled */
-@media (max-height: 350px) {
-    .details-container {
-        padding: 10px 15px;
-        max-height: 70vh;
-        overflow: scroll;
-    }
-
-    h1 {
-        font-size: clamp(20px, 3vw, 50px);
-    }
-
-    input {
-        padding: 6px;
-        font-size: 10px;
-    }
-
-    .details-btn {
-        padding: 8px;
-        font-size: 12px;
     }
 
     .logo {

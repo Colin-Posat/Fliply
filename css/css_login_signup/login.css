@@ -41,7 +41,7 @@
 
 /* Full Page Layout */
 body {
-    background-color: var(--medium-blue);
+    background-color: var(--dark-blue);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -65,6 +65,10 @@ body {
     align-items: center;
     gap: 25px;
     justify-content: space-between;
+
+    /* Ensure at least 5px gap from screen edges */
+    margin: 0 auto;
+    max-width: calc(100vw - 30px); /* 100% width minus 5px on each side */
 }
 
 /* Logo */
@@ -139,6 +143,16 @@ p a {
 
 p a:hover {
     color: var(--medium-blue);
+}
+
+#particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none; /* Prevents interactions with elements behind */
 }
 
 /* Responsive Height Adaptations */

@@ -9,7 +9,7 @@
     top: 0;
     left: 0;
     z-index: 1000;
-    border-bottom: 3px solid var(--black);
+
 
     /* Flexbox for centering */
     display: flex;
@@ -72,14 +72,13 @@
 .top-nav .nav-item.active {
     pointer-events: none;
     font-weight: 700 !important;
-    font-size: 22px;
 }
 
 
 /* Hover Effect */
 .nav-item:hover {
 
-    transform: scale(1.07);
+    transform: scale(1.05);
 }
 
 
@@ -88,17 +87,19 @@
 @media (max-width: 768px) {
     .nav-item {
         padding: 6px 10px; /* Make buttons smaller */
-        font-size: 8px; /* Reduce text size */
+        font-size: 10px; /* Reduce text size */
     }
+
 
     .back-button {
         padding: 2px 6px; /* Shrink back button */
+        margin-top: 5px;
     }
 
     .back-button img,
     .nav-item img {
-        width: 10px; /* Make icons smaller */
-        height: 10px;
+        width: 20px !important; /* Make icons smaller */
+        height: 20px !important;
     }
 
 
