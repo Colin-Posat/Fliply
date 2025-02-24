@@ -73,9 +73,9 @@ body {
 
 /* Logo */
 .logo {
-    width: clamp(250px, 30vw, 300px);
+    width: clamp(200px, 30vw, 250px);
     height: auto;
-    margin-bottom: -50px;
+    margin-bottom: 0px;
 }
 
 /* Fliply Title */
@@ -156,7 +156,7 @@ p a:hover {
 }
 
 /* Responsive Height Adaptations */
-@media (max-height: 800px) {
+@media (max-height: 870px) {
     .login-container {
         padding: 40px;
         max-height: 85vh;
@@ -182,7 +182,7 @@ p a:hover {
 }
 
 /* New Stage: Everything smaller, logo still visible */
-@media (max-height: 870px) {
+@media (max-height: 940px) {
     .login-container {
         padding: 35px;
         max-height: 82vh;
@@ -207,7 +207,7 @@ p a:hover {
     }
 }
 
-@media (max-height: 780px) {
+@media (max-height: 850px) {
     .login-container {
         padding: 30px;
         max-height: 80vh;
@@ -233,7 +233,7 @@ p a:hover {
 }
 
 /* At 550px, logo disappears and scrolling enabled */
-@media (max-height: 760px) {
+@media (max-height: 830px) {
     .login-container {
         padding: 20px;
         max-height: 75vh;

@@ -244,4 +244,111 @@ document.addEventListener("DOMContentLoaded", () => {
             alert("Failed to save flashcard set.");
         }
     };
+
+    const navItems = document.querySelectorAll(".nav-item"); // Select all nav links
+
+    // Navigation Items Confirmation
+navItems.forEach((item) => {
+    item.addEventListener("click", (event) => {
+        let hasText = false;
+        document.querySelectorAll(".flashcard").forEach((flashcard) => {
+            const questionText = flashcard.querySelector(".question-container textarea").value.trim();
+            const answerText = flashcard.querySelector(".answer-container textarea").value.trim();
+            if (questionText || answerText) {
+                hasText = true;
+            }
+        });
+
+        if (flashcardContainer.children.length === 1 && !hasText) {
+            return;
+        }
+
+        if (!hasText) {
+            return; // Prevent navigation if all flashcards are empty
+        }
+
+        let updatedTitle = document.querySelector(".set-title").value.trim();
+        let updatedClassCode = document.querySelector(".class-code").value.trim();
+
+        // ✅ Extract updated flashcards
+        let updatedFlashcards = [];
+        document.querySelectorAll(".flashcard").forEach((card) => {
+            let question = card.querySelector(".question-container textarea").value.trim();
+            let answer = card.querySelector(".answer-container textarea").value.trim();
+
+            if (question || answer) {  // ✅ Ensure at least one field is filled
+                updatedFlashcards.push({ question, answer });
+            }
+        });
+
+        // ✅ Function to check if two flashcard arrays are identical
+        function areFlashcardsEqual(arr1, arr2) {
+            if (arr1.length !== arr2.length) return false;
+            return arr1.every((flashcard, index) => 
+                flashcard.question === arr2[index].question &&
+                flashcard.answer === arr2[index].answer
+            );
+        }
+
+        // ✅ Check if no changes have been made when editing
+        if (editingSet &&
+            editingSet.title === updatedTitle &&
+            editingSet.classCode === updatedClassCode &&
+            areFlashcardsEqual(editingSet.flashcards, updatedFlashcards)
+        ) {
+            return; // No changes detected, allow navigation without confirmation
+        }
+
+        event.preventDefault();
+        const destination = item.getAttribute("href"); // Get the target link
+        showExitConfirmation(destination);
+    });
+});
+
+    function showExitConfirmation(destination) {
+        // Remove any existing modal to prevent duplicates
+        const existingModal = document.querySelector(".exit-modal");
+        if (existingModal) {
+            existingModal.remove();
+        }
+
+        // Create a modal container
+        const modal = document.createElement("div");
+        modal.classList.add("exit-modal");
+
+        // Modal content
+        modal.innerHTML = `
+            <div class="exit-modal-content">
+                <p>Do you want to save before leaving?</p>
+                <button class="modal-btn save-exit">Save and Exit</button>
+                <button class="modal-btn exit-no-save">Exit Without Saving</button>
+                <button class="modal-btn cancel">Cancel</button>
+            </div>
+        `;
+
+        // Append modal to body
+        document.body.appendChild(modal);
+
+        // Add event listeners to buttons
+        document.querySelector(".save-exit").addEventListener("click", () => {
+            // Get Set Title & Class Code
+            const setTitle = document.querySelector(".set-title").value.trim();
+            const classCode = document.querySelector(".class-code").value.trim();
+
+            if (!setTitle || !classCode) {
+                alert("Please provide a title and class code.");
+                return; // Stop function, do not navigate
+            }
+            saveFlashcardSet(false);
+            window.location.href = destination;
+        });
+
+        document.querySelector(".exit-no-save").addEventListener("click", () => {
+            window.location.href = destination; // Navigate without saving
+        });
+
+        document.querySelector(".cancel").addEventListener("click", () => {
+            modal.remove(); // Close modal without leaving
+        });
+    }
 });
